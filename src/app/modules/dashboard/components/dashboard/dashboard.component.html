@@ -1,20 +1,24 @@
 <mat-drawer-container class="dashboard-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-<!--       <p>Auto-resizing sidenav</p>
+  <app-header></app-header>
+  <mat-drawer #drawer class="sidenav-conteiner" mode="side">
+    <!--       <p>Auto-resizing sidenav</p>
       @if (showFiller) {
         <p>Lorem, ipsum dolor sit amet consectetur.</p>
       }
       <button (click)="showFiller = !showFiller" mat-raised-button>
         Toggle extra text
       </button> -->
-      <p>sidebar que tengo que usar despues de arreglar los values</p>
-    </mat-drawer>
-  
-    <div class="example-sidenav-content">
-      <button type="button" mat-button (click)="drawer.toggle()">
-        Toggle sidenav
-      </button>
-    </div>
-  
-  </mat-drawer-container>
-  
+    <p>sidebar que tengo que usar despues de arreglar los values</p>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div>
+  <div class="students-container">
+    <app-students></app-students>
+  </div>
+
+
+</mat-drawer-container>
