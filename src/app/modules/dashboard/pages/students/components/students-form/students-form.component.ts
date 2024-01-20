@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './students-form.component.scss'
 })
 export class StudentsFormComponent {
+  @Output() studentSubmit = new EventEmitter();
+
   studentForm: FormGroup;
   constructor(private fb: FormBuilder) {
     this.studentForm = this.fb.group({
@@ -19,5 +21,11 @@ export class StudentsFormComponent {
       role: this.fb.control('', [Validators.required, Validators.minLength(2)]),
     });
 
+  }
+
+  onSubmit() {
+    console.log(this.studentForm.value);
+    this.studentSubmit.emit(this.studentForm.value);
+    
   }
 }

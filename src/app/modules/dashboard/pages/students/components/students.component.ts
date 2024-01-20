@@ -30,4 +30,9 @@ export class StudentsComponent {
       role: 'USER',
     }
   ];
+
+  onStudentSubmit(ev: Student): void {
+    this.dataSource = [...this.dataSource, ev];
+    
+  }
 }

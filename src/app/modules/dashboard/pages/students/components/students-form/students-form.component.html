@@ -1,5 +1,5 @@
 <div  class="form mat-elevation-z8">
-  <form [formGroup]="studentForm" class="form-container">
+  <form (ngSubmit)="onSubmit()" [formGroup]="studentForm" class="form-container">
     <mat-form-field class="form-field">
       <mat-label>Nombre</mat-label>
       <input formControlName="firstName" matInput type="text" />
@@ -33,11 +33,11 @@
     <mat-form-field class="form-field">
       <mat-label>Rol</mat-label>
       <mat-select formControlName="role">
-        <mat-option value="ADMIN">ADMIN</mat-option>
+        <mat-option value="ADMIN">ADMIN</mat-option>  
         <mat-option value="USER">USER</mat-option>
       </mat-select>
     </mat-form-field>
-    <button class="form-buton" mat-button color="primary mat-elevation-z8">Guardar</button>
+    <button class="form-button" mat-button color="primary mat-elevation-z8">Guardar</button>
   </form>
 </div>
 
