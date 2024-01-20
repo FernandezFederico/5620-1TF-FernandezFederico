@@ -9,30 +9,10 @@ import { Student } from '../interface';
 export class StudentsComponent {
   displayedColumns: string[] = ['id', 'fullName', 'email', 'address', 'phone', 'password', 'role'];
   dataSource: Student[] = [
-    {
-      id: 1,
-      firstName: 'Mark',
-      lastName: 'Otto',
-      email: '@mdo',
-      address: 'mdo',
-      phone: '3513123123',
-      password: '1234',
-      role: 'ADMIN',
-    },
-    {
-      id: 2,
-      firstName: 'Cart',
-      lastName: 'Stark',
-      email: '@mdo',
-      address: 'mdo',
-      phone: '3513321321',
-      password: '4321',
-      role: 'USER',
-    }
+    
   ];
 
   onStudentSubmit(ev: Student): void {
-    this.dataSource = [...this.dataSource, ev];
-    
+    this.dataSource = [...this.dataSource, {...ev, id: this.dataSource.length + 1}];
   }
 }

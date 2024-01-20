@@ -1,6 +1,15 @@
 .dashboard-container {
     height: 100vh;
 
+    .sidenav-conteiner {
+        background-color: rgb(21, 21, 106);
+        color: whitesmoke;
+        max-width: 300px;
+        margin: 10px 10px;
+        padding: 12px;
+        border-radius: 10px;
+    }
+
     .students-container{
         height: 100%;
         padding: 30px;

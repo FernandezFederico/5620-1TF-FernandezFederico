@@ -1,3 +1,15 @@
 .header {
-    background-color: aqua;
+    background-color: rgb(21, 21, 106);
+    color: whitesmoke;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .header__main {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
 }

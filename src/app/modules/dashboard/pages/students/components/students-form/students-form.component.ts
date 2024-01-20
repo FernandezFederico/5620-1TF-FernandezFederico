@@ -17,7 +17,7 @@ export class StudentsFormComponent {
       email: this.fb.control('', [Validators.required, Validators.email, Validators.minLength(2)]),
       address: this.fb.control('', [Validators.required, Validators.minLength(2)]),
       phone: this.fb.control('', [Validators.required, Validators.minLength(2)]),
-      password: this.fb.control('', [Validators.required, Validators.minLength(2)]),
+      password: this.fb.control('', [Validators.required, Validators.minLength(6)]),
       role: this.fb.control('', [Validators.required, Validators.minLength(2)]),
     });
 
@@ -25,7 +25,12 @@ export class StudentsFormComponent {
 
   onSubmit() {
     console.log(this.studentForm.value);
-    this.studentSubmit.emit(this.studentForm.value);
+    if (this.studentForm.invalid) {
+      this.studentForm.markAllAsTouched();
+    }else {
+      this.studentSubmit.emit(this.studentForm.value);
+      this.studentForm.reset();
+    }
     
   }
 }
