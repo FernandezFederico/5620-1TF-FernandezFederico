@@ -23,13 +23,14 @@ export class StudentsFormComponent {
 
   }
 
-  onSubmit() {
+  onStudentSubmit():void {
     console.log(this.studentForm.value);
     if (this.studentForm.invalid) {
       this.studentForm.markAllAsTouched();
     }else {
       this.studentSubmit.emit(this.studentForm.value);
       this.studentForm.reset();
+      this.studentForm.markAsUntouched();
     }
     
   }
