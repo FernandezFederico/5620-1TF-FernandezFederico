@@ -1,0 +1,23 @@
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-students-form',
+  templateUrl: './students-form.component.html',
+  styleUrl: './students-form.component.scss'
+})
+export class StudentsFormComponent {
+  studentForm: FormGroup;
+  constructor(private fb: FormBuilder) {
+    this.studentForm = this.fb.group({
+      firstName: this.fb.control('', [Validators.required, Validators.minLength(2)]),
+      lastName: this.fb.control('', [Validators.required, Validators.minLength(2)]),
+      email: this.fb.control('', [Validators.required, Validators.email, Validators.minLength(2)]),
+      address: this.fb.control('', [Validators.required, Validators.minLength(2)]),
+      phone: this.fb.control('', [Validators.required, Validators.minLength(2)]),
+      password: this.fb.control('', [Validators.required, Validators.minLength(2)]),
+      role: this.fb.control('', [Validators.required, Validators.minLength(2)]),
+    });
+
+  }
+}
