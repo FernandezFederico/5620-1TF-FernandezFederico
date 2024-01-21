@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  
+  showSidebar = true;
+  style = 'bolder';
+  showHome = true;
+
 
 }

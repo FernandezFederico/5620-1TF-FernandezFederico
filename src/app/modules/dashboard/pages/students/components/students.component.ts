@@ -18,7 +18,7 @@ export class StudentsComponent {
     Swal.fire({
       position: "top-end",
       icon: "success",
-      title: "Your work has been saved",
+      title: "Usuario registrado",
       showConfirmButton: false,
       timer: 1500
     });
@@ -27,24 +27,28 @@ export class StudentsComponent {
 
   deleteStudent(student: Student): void {
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: "Quieres ELIMINAR el usuario?",
+      text: "No podrás revertir los cambios!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Borrar el usuario",
     }).then((result) => {
       if (result.isConfirmed) {
         this.dataSource = this.dataSource.filter(s => s.id !== student.id);
         Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
+          title: "BORRADO!",
+          text: "Usuario borrado",
           icon: "success"
         });
       }
     });
     
+    
+  }
+
+  editStudent(student: Student): void {
     
   }
  
