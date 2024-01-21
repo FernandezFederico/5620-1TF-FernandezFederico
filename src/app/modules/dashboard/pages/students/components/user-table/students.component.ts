@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Student } from '../interface';
+import { Student } from '../../interface';
 import Swal from 'sweetalert2';
 
 
@@ -9,8 +9,19 @@ import Swal from 'sweetalert2';
   styleUrl: './students.component.scss'
 })
 export class StudentsComponent {
+  
   displayedColumns: string[] = ['id', 'fullName', 'email', 'address', 'phone', 'password', 'role', 'actions'];
   dataSource: Student[] = [
+    {
+      id: 1,
+      firstName: "test",
+      lastName: "test",
+      email: "test@example.com",
+      address: "Calle test 123",
+      phone: "123456789",
+      password: "123456",
+      role: "student",
+    }
   ];
 
   onStudentSubmit(ev: Student): void {
@@ -49,6 +60,10 @@ export class StudentsComponent {
   }
 
   editStudent(student: Student): void {
+    
+  }
+
+  showStudent(student: Student): void {
     
   }
  

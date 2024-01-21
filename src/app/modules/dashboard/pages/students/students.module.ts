@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StudentsComponent } from './components/students.component';
+import { StudentsComponent } from './components/user-table/students.component';
 import {MatTableModule} from '@angular/material/table';
 import { StudentsFormComponent } from './components/students-form/students-form.component';
 

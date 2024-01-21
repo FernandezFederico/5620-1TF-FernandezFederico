@@ -1,29 +1,12 @@
 .dashboard__container {
+    width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 
-    .sidenav__container {
-        background-color: rgb(21, 21, 106);
-        color: whitesmoke;
-        max-width: 300px;
-        margin: 10px 10px;
-        padding: 12px;
-        border-radius: 10px;
-
-        .sidenav__list{
-
-            .list__item{
-                
-                a{
-                    color: whitesmoke;
-                }
-            }
-        }
-
-        
-    }
-
-    .students-container{
-        height: 100%;
+    .students__container {
+        height: 100vh;
         padding: 30px;
     }
 }

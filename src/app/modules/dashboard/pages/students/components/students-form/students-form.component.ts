@@ -24,7 +24,6 @@ export class StudentsFormComponent {
   }
 
   onStudentSubmit():void {
-    console.log(this.studentForm.value);
     if (this.studentForm.invalid) {
       this.studentForm.markAllAsTouched();
     }else {
