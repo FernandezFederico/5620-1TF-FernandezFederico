@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import { StudentsModule } from '../dashboard/pages/students/students.module';
@@ -10,7 +10,7 @@ import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
-    DashboardComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
