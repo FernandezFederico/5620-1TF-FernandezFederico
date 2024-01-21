@@ -1,14 +1,12 @@
 <app-header></app-header>
-<mat-drawer-container class="dashboard-container" autosize>
-  <mat-drawer class="sidenav-conteiner" #drawer  mode="side">
-    <!--       <p>Auto-resizing sidenav</p>
-      @if (showFiller) {
-        <p>Lorem, ipsum dolor sit amet consectetur.</p>
-      }
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Toggle extra text
-      </button> -->
-    <p>sidebar que tengo que usar despues de arreglar los values</p>
+<mat-drawer-container class="dashboard__container" autosize>
+
+  <mat-drawer class="sidenav__container"  #drawer  mode="side">
+    <mat-list class="sidenav__list" role="list">
+      <mat-list-item class="list__item" role="listitem"><a href="#">HOME</a></mat-list-item>
+      <mat-list-item class="list__item" role="listitem"><a href="#">COROS</a></mat-list-item>
+      <mat-list-item class="list__item" role="listitem"><a href="#">USUARIOS</a></mat-list-item>
+    </mat-list>
   </mat-drawer>
 
   <div class="example-sidenav-content">

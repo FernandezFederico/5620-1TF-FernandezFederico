@@ -5,6 +5,9 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import { StudentsModule } from '../dashboard/pages/students/students.module';
 import { LayoutModule } from '../layout/layout.module';
+import {MatListModule} from '@angular/material/list';
+
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -15,6 +18,7 @@ import { LayoutModule } from '../layout/layout.module';
     MatButtonModule,
     StudentsModule,
     LayoutModule,
+    MatListModule,
   ],
   exports: [
     DashboardComponent,

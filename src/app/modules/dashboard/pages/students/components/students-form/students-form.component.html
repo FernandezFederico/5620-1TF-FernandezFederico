@@ -1,37 +1,37 @@
 <div  class="form mat-elevation-z8">
   <h2 appTittleFontSize>Agregar Estudiante</h2>
-  <form (ngSubmit)="onStudentSubmit()" [formGroup]="studentForm" class="form-container">
-    <mat-form-field class="form-field">
+  <form (ngSubmit)="onStudentSubmit()" [formGroup]="studentForm" class="form__container">
+    <mat-form-field class="form__field">
       <mat-label>Nombre</mat-label>
       <input formControlName="firstName" matInput type="text" />
     </mat-form-field>
 
-    <mat-form-field class="form-field">
+    <mat-form-field class="form__field">
       <mat-label>Apellido</mat-label>
       <input formControlName="lastName" matInput type="text" />
     </mat-form-field>
 
-    <mat-form-field class="form-field">
+    <mat-form-field class="form__field">
       <mat-label>E-mail</mat-label>
       <input formControlName="email" matInput type="email" />
     </mat-form-field>
 
-    <mat-form-field class="form-field">
+    <mat-form-field class="form__field">
       <mat-label>Dirección</mat-label>
       <input formControlName="address" matInput type="text" />
     </mat-form-field>
 
-    <mat-form-field class="form-field">
+    <mat-form-field class="form__field">
       <mat-label>Teléfono</mat-label>
       <input formControlName="phone" matInput type="text" />
     </mat-form-field>
 
-    <mat-form-field class="form-field">
+    <mat-form-field class="form__field">
       <mat-label>Contraseña</mat-label>
       <input formControlName="password" matInput type="password" />
     </mat-form-field>
 
-    <mat-form-field class="form-field">
+    <mat-form-field class="form__field">
       <mat-label>Rol</mat-label>
       <mat-select formControlName="role">
         <mat-option value="ADMIN">ADMIN</mat-option>  
