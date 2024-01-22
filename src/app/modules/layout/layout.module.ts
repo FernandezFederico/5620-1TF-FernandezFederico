@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
   declarations: [
     HeaderComponent,
     SidenavComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -26,6 +27,9 @@ import { MatListModule } from '@angular/material/list';
   exports: [
     HeaderComponent,
     SidenavComponent,
+
   ]
 })
-export class LayoutModule { }
+export class LayoutModule {
+
+ }

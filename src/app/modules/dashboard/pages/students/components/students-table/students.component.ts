@@ -66,5 +66,12 @@ export class StudentsComponent {
   showStudent(student: Student): void {
     
   }
+
+  modalVisible: boolean = false;
+  
+  //método para abrir el modal
+  abrirModal() {
+    this.modalVisible = true;
+  }
  
 }

@@ -1,0 +1,11 @@
+
+    <div *ngIf="visible" class="modal__background">
+        <div class="card w-50">
+            <div class="card-body">
+                La primera parte habla de declaraciones, derechos y garantías. Las declaraciones son los principios
+                fundamentales de la organización del país. Los derechos tienen que ver con nuestro desarrollo como
+                personas.
+            </div>
+            <button class='btn btn-danger' (click)="visibleChange.emit()">CERRAR</button>
+        </div>
+    </div>
