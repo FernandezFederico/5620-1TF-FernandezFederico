@@ -1,4 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
+import { Student } from '../../interface';
 
 @Component({
   selector: 'app-students-modal',
@@ -6,9 +9,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './students-modal.component.scss'
 })
 export class StudentsModalComponent {
-  @Input()
-  visible = false;
+  id: number;
 
-  @Output()
-  visibleChange = new EventEmitter();
+  constructor(public dialogRef: MatDialogRef<StudentsModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Student) { 
+      this.id = data.id;
+      console.log("se recibe la data: ", data);
+      
+    }
+
 }

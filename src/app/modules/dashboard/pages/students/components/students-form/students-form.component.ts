@@ -10,7 +10,7 @@ export class StudentsFormComponent {
   @Output() studentSubmit = new EventEmitter();
 
   studentForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,) {
     this.studentForm = this.fb.group({
       firstName: this.fb.control('', [Validators.required, Validators.minLength(2)]),
       lastName: this.fb.control('', [Validators.required, Validators.minLength(2)]),

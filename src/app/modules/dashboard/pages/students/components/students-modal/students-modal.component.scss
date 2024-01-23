@@ -1,35 +1,28 @@
-.modal__background {
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.466);
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    
+mat-dialog-content {
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
 
-
-    .card {
-        background-color: bisque;
-        min-height: 200px;
-        border-radius: 10px;
-
+    .form__container {
+        width: auto;
         display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
 
+        .form__field {
+            min-width: 30%;
+            margin: 10px;
+        }
     }
 
-    /* height: 50vh;
-    width: 50%;
-    background-color: rgba(0, 0, 0, 0.466);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
+
 }

@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ShearedModule } from '../../../sheared/sheared.module';
 import { StudentsModalComponent } from './components/students-modal/students-modal.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,13 @@ import { StudentsModalComponent } from './components/students-modal/students-mod
     ReactiveFormsModule,
     MatIconModule,
     ShearedModule,
+    MatDialogModule,
   ],
   exports: [
-    StudentsComponent
+    StudentsComponent,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
   ]
 })
 export class StudentsModule { }

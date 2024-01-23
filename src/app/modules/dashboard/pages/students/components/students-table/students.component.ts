@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Student } from '../../interface';
 import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { StudentsModalComponent } from '../students-modal/students-modal.component';
 
 
 @Component({
@@ -67,11 +69,21 @@ export class StudentsComponent {
     
   }
 
-  modalVisible: boolean = false;
   
   //método para abrir el modal
-  abrirModal() {
-    this.modalVisible = true;
+  constructor(public dialog: MatDialog) {}
+  
+  abrirModal(id: number): void {
+    const dialogRef = this.dialog.open(StudentsModalComponent, {
+      disableClose: true,
+      data:{id: id}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: cerrado`);
+    });
+    
+
   }
  
 }
