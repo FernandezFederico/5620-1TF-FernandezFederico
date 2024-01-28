@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { LayoutModule } from '../../layout.module';
+import { Component, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-sidenav',
@@ -7,6 +7,11 @@ import { LayoutModule } from '../../layout.module';
   styleUrl: './sidenav.component.scss'
 })
 export class SidenavComponent {
+  @Input() isOpened: boolean = false;
+  @Input() isSidenavOpen: boolean = false;
 
+  toggleSidenav() {
+    this.isOpened = !this.isOpened;
+  }
 
 }

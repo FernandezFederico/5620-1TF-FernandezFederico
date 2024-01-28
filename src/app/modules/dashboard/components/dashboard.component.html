@@ -1,10 +1,9 @@
-<app-header></app-header>
+<app-header [isSidenavOpen]="isSidenavOpen" (toggleSidenav)="toggleSidenav()" ></app-header>
+
 <div class="dashboard__container">
-
-  <app-sidenav></app-sidenav>
-
+  <app-sidenav [isSidenavOpen]="!isSidenavOpen"></app-sidenav>
+  
   <div class="students__container">
     <app-students></app-students>
   </div>
-
 </div>

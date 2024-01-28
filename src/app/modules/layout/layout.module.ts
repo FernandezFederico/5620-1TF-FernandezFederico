@@ -9,7 +9,6 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 
-
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -27,9 +26,11 @@ import { MatListModule } from '@angular/material/list';
   exports: [
     HeaderComponent,
     SidenavComponent,
+    MatSidenavModule
 
   ]
 })
 export class LayoutModule {
+ 
 
  }

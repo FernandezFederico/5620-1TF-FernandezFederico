@@ -1,16 +1,17 @@
-<mat-drawer-container class="sidenav__conteiner" autosize autosize>
-  <mat-drawer #drawer class="sidenav" mode="side">
+<mat-drawer-container class="sidenav__container" autosize>
+  <mat-drawer  #drawer class="sidenav" mode="side" [opened]="isSidenavOpen">
     <mat-list class="sidenav__list" role="list">
       <mat-list-item class="sidenav__item" role="listitem"><a class="sidenav__link" href="#">HOME</a></mat-list-item>
-      <mat-list-item class="sidenav__item" role="listitem"><a class="sidenav__link" href="#">USUARIOS</a></mat-list-item>
+      <mat-list-item class="sidenav__item" role="listitem"><a class="sidenav__link"
+          href="#">USUARIOS</a></mat-list-item>
       <mat-list-item class="sidenav__item" role="listitem"><a class="sidenav__link" href="#">CURSOS</a></mat-list-item>
     </mat-list>
   </mat-drawer>
 
-  <div class="example-sidenav-content">
+<!--   <div class="example-sidenav-content">
     <button type="button" mat-button (click)="drawer.toggle()">
       Toggle sidenav
     </button>
   </div>
-
+ -->
 </mat-drawer-container>
