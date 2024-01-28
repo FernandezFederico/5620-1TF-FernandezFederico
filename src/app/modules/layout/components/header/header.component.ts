@@ -5,7 +5,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  @Input() isSidenavOpen: boolean = false;
   @Output() toggleSidenav = new EventEmitter<void>();
 
   onToggleSidenav(): void {
