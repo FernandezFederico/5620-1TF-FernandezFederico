@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { ShearedModule } from './modules/sheared/sheared.module';
 
 
 
@@ -19,6 +20,7 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     DashboardModule,
+    ShearedModule,
 
   ],
   providers: [],

@@ -1,44 +1,59 @@
-import { Component } from '@angular/core';
-import { Student } from '../../interface';
+import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentsModalComponent } from '../students-modal/students-modal.component';
-
-
+import { LoadingService } from '../../../../../../core/services/loading.service';
+import { AlertsService } from '../../../../../../core/services/alerts.service';
+import { StudentsService } from '../../../../../../core/services/students.service';
+import { Student } from '../../interface/index';
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
   styleUrl: './students.component.scss'
 })
-export class StudentsComponent {
-  
+export class StudentsComponent implements OnInit {
+
+  constructor(
+    public dialog: MatDialog,
+    private loadingService: LoadingService,
+    private alertsService: AlertsService,
+    private studentsService: StudentsService,
+
+  ) {
+
+  }
+  ngOnInit(): void {
+    this.loadingService.setLoading(true)
+    this.studentsService.getStudents().subscribe({
+      next: (students) => {
+        this.dataSource = students
+      },
+      complete: () => {
+        this.loadingService.setLoading(false)
+      }
+    })
+  }
   displayedColumns: string[] = ['id', 'fullName', 'email', 'address', 'phone', 'password', 'role', 'actions'];
-  dataSource: Student[] = [
-    {
-      id: 1,
-      firstName: "test",
-      lastName: "test",
-      email: "test@example.com",
-      address: "Calle test 123",
-      phone: "123456789",
-      password: "123456",
-      role: "student",
-    }
-  ];
+  dataSource: Student[] = [];
+
+  // ? ejemplo de loader y service en botón submit
 
   onStudentSubmit(ev: Student): void {
-    this.dataSource = [...this.dataSource, {...ev, id: this.dataSource.length + 1}];
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "Usuario registrado",
-      showConfirmButton: false,
-      timer: 1500
+    this.loadingService.setLoading(true);
+    this.studentsService.studentSubmit({ ...ev, id: this.dataSource.length + 1 }).subscribe({
+      next: (student) => {
+        this.dataSource = [...student];
+      },
+      complete: () => {
+        this.alertsService.showSuccessAlert("Estudiante creado", "Estudiante creado exitosamente");
+        this.loadingService.setLoading(false);
+      }
     });
-    
+
+
   }
 
-  deleteStudent(student: Student): void {
+  onDeleteStudent(ev: Student): void {
     Swal.fire({
       title: "Quieres ELIMINAR el usuario?",
       text: "No podrás revertir los cambios!",
@@ -49,41 +64,48 @@ export class StudentsComponent {
       confirmButtonText: "Borrar el usuario",
     }).then((result) => {
       if (result.isConfirmed) {
-        this.dataSource = this.dataSource.filter(s => s.id !== student.id);
-        Swal.fire({
-          title: "BORRADO!",
-          text: "Usuario borrado",
-          icon: "success"
+        this.loadingService.setLoading(true)
+        this.studentsService.deleteStudent(ev.id).subscribe({
+          next: (student) => {
+            this.dataSource = [...student]
+          },
+          complete: () => {
+            this.loadingService.setLoading(false)
+            Swal.fire({
+              title: "BORRADO!",
+              text: "Usuario borrado",
+              icon: "success"
+            });
+          }
         });
+
       }
     });
-    
-    
+
+
+
   }
 
-  editStudent(student: Student): void {
-    
+  OnEditStudent(student: Student): void {
+
   }
 
-  showStudent(student: Student): void {
-    
+  OnShowStudent(student: Student): void {
+
   }
 
-  
-  //método para abrir el modal
-  constructor(public dialog: MatDialog) {}
-  
-  abrirModal(id: number): void {
+  //método para abrir el modal de modificar el estudiante
+  openModal(id: number): void {
     const dialogRef = this.dialog.open(StudentsModalComponent, {
       disableClose: true,
-      data:{id: id}
+      data: { id: id }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: cerrado`);
     });
-    
+
 
   }
- 
+
 }
