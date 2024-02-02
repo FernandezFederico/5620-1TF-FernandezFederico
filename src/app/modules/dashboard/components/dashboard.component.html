@@ -3,7 +3,9 @@
 <div class="dashboard__container">
   <app-sidenav [isSidenavOpen]="!isSidenavOpen"></app-sidenav>
   
-  <div class="students__container">
-    <app-students></app-students>
+  <div class="pages__container">
+    <!-- <app-students></app-students> -->
+    <!-- <app-courses></app-courses> -->
+    <router-outlet></router-outlet>
   </div>
 </div>
