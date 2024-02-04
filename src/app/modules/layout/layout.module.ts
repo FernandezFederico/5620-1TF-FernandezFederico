@@ -8,6 +8,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,12 +23,12 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
+    RouterModule,
   ],
   exports: [
     HeaderComponent,
     SidenavComponent,
-    MatSidenavModule
-
+    MatSidenavModule,
   ]
 })
 export class LayoutModule {
