@@ -23,7 +23,7 @@ export class StudentsService {
   constructor() { }
 
   getStudents() {
-    return of(STUDENTS_DB).pipe(delay(1500)); 
+    return of(STUDENTS_DB).pipe(delay(1500));   
   }
   
   studentSubmit(payload: Student) {

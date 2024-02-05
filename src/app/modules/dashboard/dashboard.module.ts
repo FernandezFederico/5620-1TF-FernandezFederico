@@ -9,7 +9,7 @@ import { CoursesModule } from './pages/courses/courses.module';
 
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/components/home.component';
-import { CoursesComponent } from './pages/courses/components/courses.component';
+import { CoursesComponent } from './pages/courses/components/courses-table/courses.component';
 import { StudentsComponent } from './pages/students/components/students-table/students.component';
 import { StudentDetailComponent } from './pages/students/pages/student-detail/student-detail.component';
 

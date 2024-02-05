@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
-import { CoursesRoutingModule } from './courses-routing.module';
-import { CoursesComponent } from './components/courses.component';
+
+import { CoursesComponent } from './components/courses-table/courses.component';
 import { ShearedModule } from '../../../sheared/sheared.module';
 
 
@@ -12,8 +13,8 @@ import { ShearedModule } from '../../../sheared/sheared.module';
   ],
   imports: [
     CommonModule,
-    CoursesRoutingModule,
     ShearedModule,
+    RouterModule,
   ], exports: [
     CoursesComponent,
   ]

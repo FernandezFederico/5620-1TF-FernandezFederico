@@ -19,9 +19,8 @@ export class StudentsComponent implements OnInit {
     private alertsService: AlertsService,
     private studentsService: StudentsService,
 
-  ) {
+  ) { }
 
-  }
   ngOnInit(): void {
     this.loadingService.setLoading(true)
     this.studentsService.getStudents().subscribe({
@@ -35,8 +34,6 @@ export class StudentsComponent implements OnInit {
   }
   displayedColumns: string[] = ['id', 'fullName', 'email', 'address', 'phone', 'password', 'role', 'actions'];
   dataSource: Student[] = [];
-
-  // ? ejemplo de loader y service en botón submit
 
   onStudentSubmit(ev: Student): void {
     this.loadingService.setLoading(true);
