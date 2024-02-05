@@ -1,9 +1,9 @@
 <mat-drawer-container class="sidenav__container" autosize>
   <mat-drawer  #drawer class="sidenav" mode="side" [opened]="isSidenavOpen">
-    <mat-nav-list class="sidenav__list" role="list">
-      <a class="sidenav__link" routerLink="/dashboard/home">INICIO</a>
-      <a class="sidenav__link" routerLink="/dashboard/students">ESTUDIANTES</a>
-      <a class="sidenav__link" routerLink="/dashboard/courses">CURSOS</a>
+    <mat-nav-list class="sidenav__list">
+      <a mat-list-item #homeLink="routerLinkActive" [activated]="homeLink.isActive" routerLinkActive  class="sidenav__link" routerLink="/dashboard/home">INICIO</a>
+      <a mat-list-item #studentsLink="routerLinkActive" [activated]="studentsLink.isActive"  routerLinkActive  class="sidenav__link" routerLink="/dashboard/students">ESTUDIANTES</a>
+      <a mat-list-item #coursesLink="routerLinkActive" [activated]="coursesLink.isActive"  routerLinkActive class="sidenav__link" routerLink="/dashboard/courses">CURSOS</a>
     </mat-nav-list>
   </mat-drawer>
 </mat-drawer-container> 

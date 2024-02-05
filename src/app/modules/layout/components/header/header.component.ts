@@ -1,14 +1,21 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import {  Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  @Output() toggleSidenav = new EventEmitter<void>();
 
+  constructor(private router: Router) {}
+
+  @Output() toggleSidenav = new EventEmitter<void>();
   onToggleSidenav(): void {
     this.toggleSidenav.emit();
+  }
+
+  logOut(): void {
+    this.router.navigate( ['auth', 'login'] )
   }
 }
 

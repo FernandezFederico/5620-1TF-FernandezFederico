@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './components/courses.component';
+import { ShearedModule } from '../../../sheared/sheared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { CoursesComponent } from './components/courses.component';
   ],
   imports: [
     CommonModule,
-    CoursesRoutingModule
+    CoursesRoutingModule,
+    ShearedModule,
   ], exports: [
     CoursesComponent,
   ]

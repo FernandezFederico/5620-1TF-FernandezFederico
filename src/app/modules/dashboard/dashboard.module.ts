@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/components/home.component';
 import { CoursesComponent } from './pages/courses/components/courses.component';
 import { StudentsComponent } from './pages/students/components/students-table/students.component';
-
+import { StudentDetailComponent } from './pages/students/pages/student-detail/student-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { StudentsComponent } from './pages/students/components/students-table/st
     
   ],
   imports: [
+
     CommonModule,
     MatButtonModule,
     StudentsModule,
@@ -36,6 +37,10 @@ import { StudentsComponent } from './pages/students/components/students-table/st
       {
         path: 'students',
         component: StudentsComponent,
+      },
+      {
+        path: 'students/:id',
+        component: StudentDetailComponent,
       },
       {
         path: '**',
