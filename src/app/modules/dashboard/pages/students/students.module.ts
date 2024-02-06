@@ -7,20 +7,6 @@ import { StudentDetailComponent } from './pages/student-detail/student-detail.co
 import { ShearedModule } from '../../../sheared/sheared.module';
 import { RouterModule } from '@angular/router';
 
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatTableModule } from '@angular/material/table';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
-
-import {MatDialogModule} from '@angular/material/dialog';
-
-
-
-
-
 @NgModule({
   declarations: [
     StudentsComponent,
@@ -32,23 +18,10 @@ import {MatDialogModule} from '@angular/material/dialog';
   imports: [
     CommonModule,
     ShearedModule,
-    MatTableModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    ShearedModule,
-    MatDialogModule,
     RouterModule,
   ],
   exports: [
-    StudentsComponent,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule,
-    StudentDetailComponent,
+
   ]
 })
 export class StudentsModule { }
