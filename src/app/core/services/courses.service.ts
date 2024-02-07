@@ -30,8 +30,14 @@ export class CoursesService {
     return this.getCourses();
   }
 
+  updateCourseById(id: number, datar: Course){
+    COURSES_DB = COURSES_DB.map((el) => el.id === id ? {...el, ...datar} : el);
+    return this.getCourses();
+  }
+
   deleteCourse(courseId: number) {
     COURSES_DB = COURSES_DB.filter ((course) => course.id !== courseId);
     return this.getCourses();
   }
 }
+

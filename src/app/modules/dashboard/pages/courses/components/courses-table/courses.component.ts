@@ -54,6 +54,26 @@ export class CoursesComponent implements OnInit {
     });
   }
 
+  onEditCourse(course: Course): void {
+    this.dialog.open(CoursesModalComponent,{
+      data: course,
+    }).afterClosed().subscribe({
+      next: (result) => {
+        if (result) {
+          this.loadingService.setLoading(true)
+          this.coursesService.updateCourseById(course.id, result).subscribe({
+            next: (courses) => (this.dataSource = courses),
+            complete: () => {
+              this.loadingService.setLoading(false);
+            }
+          })
+          
+        }
+      }
+    })
+
+  }
+
 
   onDeleteCourse(ev: Course): void {
     Swal.fire({

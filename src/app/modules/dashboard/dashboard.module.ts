@@ -23,8 +23,6 @@ import { StudentDetailComponent } from './pages/students/pages/student-detail/st
 
     CommonModule,
     MatButtonModule,
-    StudentsModule,
-    CoursesModule,
     LayoutModule,
     RouterModule.forChild([
       {

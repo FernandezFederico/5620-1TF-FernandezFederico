@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Course } from '../../interface';
 
 @Component({
   selector: 'app-courses-modal',
@@ -13,18 +14,23 @@ export class CoursesModalComponent {
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<CoursesModalComponent>,
+    @Inject(MAT_DIALOG_DATA) private editingCourse?: Course,
   ) {
-
+    
     this.courseForm = this.fb.group({
-      courseName: this.fb.control(''),
+      courseName: this.fb.control('', [Validators.required, Validators.minLength(2)]),
       startDate: this.fb.control(''),
       endDate: this.fb.control(''),
-      profesor: this.fb.control(''),
+      profesor: this.fb.control('', [Validators.required, Validators.minLength(2)]),
       group: this.fb.control(''),
-    })
+    });
+
+    if (editingCourse) {
+      this.courseForm.patchValue(editingCourse);
+    }
   }
 
-  onSave(){
+  onSave() {
     this.dialogRef.close(this.courseForm.value)
   }
 
