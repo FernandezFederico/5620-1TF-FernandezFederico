@@ -6,8 +6,6 @@ import { AlertsService } from '../../../../../../core/services/alerts.service';
 import { Course } from '../../interface/index';
 import { MatDialog } from '@angular/material/dialog';
 import { CoursesModalComponent } from '../courses-modal/courses-modal.component';
-
-
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
@@ -55,7 +53,7 @@ export class CoursesComponent implements OnInit {
   }
 
   onEditCourse(course: Course): void {
-    this.dialog.open(CoursesModalComponent,{
+    this.dialog.open(CoursesModalComponent, {
       data: course,
     }).afterClosed().subscribe({
       next: (result) => {
@@ -67,7 +65,7 @@ export class CoursesComponent implements OnInit {
               this.loadingService.setLoading(false);
             }
           })
-          
+
         }
       }
     })

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './components/dashboard.component';
 
-import { MatButtonModule } from '@angular/material/button';
+import { ShearedModule } from '../sheared/sheared.module';
 import { StudentsModule } from '../dashboard/pages/students/students.module';
 import { LayoutModule } from '../layout/layout.module';
 import { CoursesModule } from './pages/courses/courses.module';
@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/components/home.component';
 import { CoursesComponent } from './pages/courses/components/courses-table/courses.component';
 import { StudentsComponent } from './pages/students/components/students-table/students.component';
 import { StudentDetailComponent } from './pages/students/pages/student-detail/student-detail.component';
+import { CourseDetailComponent } from './pages/courses/pages/course-detail/course-detail.component';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { StudentDetailComponent } from './pages/students/pages/student-detail/st
   imports: [
 
     CommonModule,
-    MatButtonModule,
+    ShearedModule,
     LayoutModule,
     RouterModule.forChild([
       {
@@ -40,6 +41,10 @@ import { StudentDetailComponent } from './pages/students/pages/student-detail/st
       {
         path: 'students/:id',
         component: StudentDetailComponent,
+      },
+      {
+        path: 'courses/:id',
+        component: CourseDetailComponent,
       },
       {
         path: '**',

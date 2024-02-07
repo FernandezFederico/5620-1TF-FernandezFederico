@@ -18,7 +18,6 @@ export class StudentsComponent implements OnInit {
     private loadingService: LoadingService,
     private alertsService: AlertsService,
     private studentsService: StudentsService,
-
   ) { }
 
   ngOnInit(): void {

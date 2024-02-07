@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { delay, of } from 'rxjs';
 import { Course } from '../../modules/dashboard/pages/courses/interface';
+import { Observable, delay, of } from 'rxjs';
+
 
 let COURSES_DB: Course[] = [
   {
@@ -38,6 +39,12 @@ export class CoursesService {
   deleteCourse(courseId: number) {
     COURSES_DB = COURSES_DB.filter ((course) => course.id !== courseId);
     return this.getCourses();
+  }
+
+  getCourseById(id: number | string): Observable < Course | undefined > {
+
+    return of(COURSES_DB.find((course) => course.id == id)).pipe(delay(1500));
+
   }
 }
 
