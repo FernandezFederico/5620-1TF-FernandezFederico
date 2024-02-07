@@ -4,12 +4,14 @@ import { RouterModule } from '@angular/router';
 
 
 import { CoursesComponent } from './components/courses-table/courses.component';
+import { CoursesModalComponent } from './components/courses-modal/courses-modal.component';
 import { ShearedModule } from '../../../sheared/sheared.module';
 
 
 @NgModule({
   declarations: [
-    CoursesComponent
+    CoursesComponent,
+    CoursesModalComponent
   ],
   imports: [
     CommonModule,

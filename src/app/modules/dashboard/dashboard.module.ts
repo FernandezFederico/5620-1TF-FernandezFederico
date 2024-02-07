@@ -13,6 +13,7 @@ import { CoursesComponent } from './pages/courses/components/courses-table/cours
 import { StudentsComponent } from './pages/students/components/students-table/students.component';
 import { StudentDetailComponent } from './pages/students/pages/student-detail/student-detail.component';
 
+
 @NgModule({
   declarations: [
     DashboardComponent,

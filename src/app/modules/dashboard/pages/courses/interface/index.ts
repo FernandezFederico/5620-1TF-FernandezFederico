@@ -1,7 +1,8 @@
 export interface Course {
     id: number;
     courseName: string;
-    startDate: string;
-    endDate: string;
+    startDate: Date;
+    endDate: Date;
     profesor: string;
+    group: string;
 }

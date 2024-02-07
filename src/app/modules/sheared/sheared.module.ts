@@ -13,8 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-
-
+import  { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -37,6 +37,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ReactiveFormsModule,
     MatIconModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ]
 })
 export class ShearedModule { }

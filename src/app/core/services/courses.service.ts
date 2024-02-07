@@ -6,9 +6,10 @@ let COURSES_DB: Course[] = [
   {
     id: 1,
     courseName: "Curso Test",
-    startDate: "10/04/2024",
-    endDate: "10/07/2024",
+    startDate: new Date(),
+    endDate: new Date(),
     profesor: "Test Test",
+    group: "testGroup"
 
   }
 ]
@@ -22,6 +23,11 @@ export class CoursesService {
 
   getCourses() {
     return of(COURSES_DB).pipe(delay(1500));
+  }
+
+  createCourse(data: Course){
+    COURSES_DB = [...COURSES_DB, {...data, id: COURSES_DB.length + 1 }]; 
+    return this.getCourses();
   }
 
   deleteCourse(courseId: number) {

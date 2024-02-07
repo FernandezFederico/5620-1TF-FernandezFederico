@@ -29,8 +29,6 @@ export class StudentsService {
   studentSubmit(payload: Student) {
     STUDENTS_DB.push(payload)
     return this.getStudents();
-
-
   }
 
   deleteStudent(studentId: number) {

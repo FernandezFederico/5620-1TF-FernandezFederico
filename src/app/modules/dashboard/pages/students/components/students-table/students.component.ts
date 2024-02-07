@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import { LoadingService } from '../../../../../../core/services/loading.service';
+import { StudentsService } from '../../../../../../core/services/students.service';
+import { AlertsService } from '../../../../../../core/services/alerts.service';
+import { Student } from '../../interface/index';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentsModalComponent } from '../students-modal/students-modal.component';
-import { LoadingService } from '../../../../../../core/services/loading.service';
-import { AlertsService } from '../../../../../../core/services/alerts.service';
-import { StudentsService } from '../../../../../../core/services/students.service';
-import { Student } from '../../interface/index';
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
