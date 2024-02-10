@@ -13,8 +13,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import  { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { MatNativeDateModule } from '@angular/material/core';
   ],
   imports: [
     CommonModule,
+    
+
   ],
   exports:[
     FullNamePipe,
@@ -39,7 +42,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    
+    MatCardModule,    
   ]
 })
 export class ShearedModule { }

@@ -20,6 +20,8 @@ import { CourseDetailComponent } from './pages/course-detail/course-detail.compo
     CommonModule,
     ShearedModule,
     RouterModule,
+
+    
   ], exports: [
     CoursesComponent,
   ]

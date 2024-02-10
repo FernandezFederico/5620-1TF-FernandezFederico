@@ -53,7 +53,7 @@ export class CoursesComponent implements OnInit {
   }
 
   onEditCourse(course: Course): void {
-    this.dialog.open(CoursesModalComponent, {
+    this.dialog.open(CoursesModalComponent,{
       data: course,
     }).afterClosed().subscribe({
       next: (result) => {
@@ -65,7 +65,7 @@ export class CoursesComponent implements OnInit {
               this.loadingService.setLoading(false);
             }
           })
-
+          
         }
       }
     })

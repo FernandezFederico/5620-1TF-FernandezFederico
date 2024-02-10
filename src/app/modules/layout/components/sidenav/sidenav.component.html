@@ -1,9 +1,24 @@
 <mat-drawer-container class="sidenav__container" autosize>
-  <mat-drawer  #drawer class="sidenav" mode="side" [opened]="isSidenavOpen">
+
+  <mat-drawer #drawer class="sidenav" mode="side" [opened]="isSidenavOpen">
+
     <mat-nav-list class="sidenav__list">
-      <a mat-list-item #homeLink="routerLinkActive" [activated]="homeLink.isActive" routerLinkActive  class="sidenav__link" routerLink="/dashboard/home">INICIO</a>
-      <a mat-list-item #studentsLink="routerLinkActive" [activated]="studentsLink.isActive"  routerLinkActive  class="sidenav__link" routerLink="/dashboard/students">ESTUDIANTES</a>
-      <a mat-list-item #coursesLink="routerLinkActive" [activated]="coursesLink.isActive"  routerLinkActive class="sidenav__link" routerLink="/dashboard/courses">CURSOS</a>
+
+      <mat-list-item #homeLink="routerLinkActive" [activated]="homeLink.isActive" routerLinkActive 
+      class="sidenav__link" routerLink="/dashboard/home">
+        <mat-icon>home</mat-icon> INICIO
+      </mat-list-item>
+      <mat-list-item #studentsLink="routerLinkActive" [activated]="studentsLink.isActive" routerLinkActive
+        class="sidenav__link" routerLink="/dashboard/students">
+        <mat-icon>person</mat-icon> ESTUDIANTES
+      </mat-list-item>
+
+      <mat-list-item #coursesLink="routerLinkActive" [activated]="coursesLink.isActive" routerLinkActive
+        class="sidenav__link" routerLink="/dashboard/courses">
+        <mat-icon>history_edu</mat-icon> CURSOS
+      </mat-list-item>
+
     </mat-nav-list>
   </mat-drawer>
-</mat-drawer-container> 
+
+</mat-drawer-container>

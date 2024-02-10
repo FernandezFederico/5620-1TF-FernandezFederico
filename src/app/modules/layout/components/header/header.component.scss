@@ -13,8 +13,9 @@
         flex-direction: row;
         align-items: center;
 
-        mat-icon{
-            color: whitesmoke;
-        }
     }
+    button:hover {
+        color:chocolate;
+    }
+
 }

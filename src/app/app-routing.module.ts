@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './modules/dashboard/components/dashboard.component';
-import { LoginComponent } from './modules/auth/pages/login/login.component';
+
 import { NotFoundComponent } from './modules/not-found/components/not-found.component';
 
 
@@ -14,8 +14,10 @@ const routes: Routes = [
     ),
   },
   {
-    path: 'auth/login',
-    component: LoginComponent,
+    path: 'auth',
+    loadChildren: () => import( './modules/auth/auth.module').then(
+      (m) => m.AuthModule
+    ),
   },
   {
     path: '404',
