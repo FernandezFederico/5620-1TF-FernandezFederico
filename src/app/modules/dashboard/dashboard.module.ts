@@ -13,15 +13,16 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 
 @NgModule({
   declarations: [
-    DashboardComponent,
+    DashboardComponent
     
   ],
   imports: [
-
     CommonModule,
     ShearedModule,
     LayoutModule,
     DashboardRoutingModule,
+    StudentsModule,
+    CoursesModule
   ],
   exports: [
     DashboardComponent,

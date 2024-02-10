@@ -6,6 +6,7 @@ import { StudentsFormComponent } from './components/students-form/students-form.
 import { StudentDetailComponent } from './pages/student-detail/student-detail.component';
 import { ShearedModule } from '../../../sheared/sheared.module';
 import { RouterModule } from '@angular/router';
+import { StudentsRoutingModule } from './students-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     ShearedModule,
     RouterModule,
+    StudentsRoutingModule,
   ],
   exports: [
 
