@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FullNamePipe } from './pipes/full-name.pipe';
 import { TittleFontSizeDirective } from './directives/tittle-font-size.directive';
 
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
@@ -16,7 +16,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
-
 @NgModule({
   declarations: [
     FullNamePipe,
@@ -42,7 +41,7 @@ import { MatCardModule } from '@angular/material/card';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCardModule,    
+    MatCardModule,
   ]
 })
 export class ShearedModule { }
