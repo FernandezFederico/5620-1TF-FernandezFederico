@@ -47,4 +47,4 @@ import { ValidationErrorsPipe } from './pipes/validation-errors.pipe';
     ValidationErrorsPipe,
   ]
 })
-export class ShearedModule { }
+export class SharedModule { }

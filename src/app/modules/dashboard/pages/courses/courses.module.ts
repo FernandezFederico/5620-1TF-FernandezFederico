@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { CoursesComponent } from './components/courses-table/courses.component';
 import { CoursesModalComponent } from './components/courses-modal/courses-modal.component';
-import { ShearedModule } from '../../../sheared/sheared.module';
+import { SharedModule } from '../../../shared/shared.module';
 import { CourseDetailComponent } from './pages/course-detail/course-detail.component';
 import { CourseRoutingModule } from './course.routing.module';
 
@@ -19,7 +19,7 @@ import { CourseRoutingModule } from './course.routing.module';
   ],
   imports: [
     CommonModule,
-    ShearedModule,
+    SharedModule,
     RouterModule,
     CourseRoutingModule,
 

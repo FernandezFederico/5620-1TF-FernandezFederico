@@ -4,9 +4,10 @@ import { StudentsComponent } from './components/students-table/students.componen
 import { StudentsModalComponent } from './components/students-modal/students-modal.component';
 import { StudentsFormComponent } from './components/students-form/students-form.component';
 import { StudentDetailComponent } from './pages/student-detail/student-detail.component';
-import { ShearedModule } from '../../../sheared/sheared.module';
+import { SharedModule } from '../../../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { StudentsRoutingModule } from './students-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { StudentsRoutingModule } from './students-routing.module';
   ],
   imports: [
     CommonModule,
-    ShearedModule,
+    SharedModule,
     RouterModule,
     StudentsRoutingModule,
   ],

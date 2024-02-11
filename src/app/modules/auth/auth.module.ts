@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './pages/login/login.component';
-import { ShearedModule } from '../sheared/sheared.module';
+
 import { RouterModule } from '@angular/router';
 import { AuthRoutingModule } from './auth-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { AuthRoutingModule } from './auth-routing.module';
   ],
   imports: [
     CommonModule,
-    ShearedModule,
+    SharedModule,
     RouterModule,
     AuthRoutingModule,
  
