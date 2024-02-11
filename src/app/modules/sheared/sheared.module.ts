@@ -16,10 +16,12 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
+import { ValidationErrorsPipe } from './pipes/validation-errors.pipe';
 @NgModule({
   declarations: [
     FullNamePipe,
     TittleFontSizeDirective,
+    ValidationErrorsPipe,
 
   ],
   imports: [
@@ -42,6 +44,7 @@ import { MatCardModule } from '@angular/material/card';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
+    ValidationErrorsPipe,
   ]
 })
 export class ShearedModule { }
