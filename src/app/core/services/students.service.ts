@@ -1,44 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Student } from '../../modules/dashboard/pages/students/interface';
-import {  Observable, delay, of } from 'rxjs';
-
-let STUDENTS_DB: Student[] = [
-  {
-    id: 1,
-    firstName: "test",
-    lastName: "test",
-    email: "test@example.com",
-    address: "Calle test 123",
-    phone: "123456789",
-    password: "123456",
-    role: "student",
-  }
-];
+import { Observable, catchError, mergeMap, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+import { AlertsService } from './alerts.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentsService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient, private alertsService: AlertsService) { }
 
   getStudents() {
-    return of(STUDENTS_DB).pipe(delay(1500));   
+    return this.httpClient.get<Student[]>(`${environment.apiURL}/students`).pipe(
+      catchError((error) => {
+        this.alertsService.showErrorAlert('Ups!', 'Error al cargar los Estudiantes');
+        return of([]);
+      }
+
+      )
+    )
   }
-  
+
   studentSubmit(payload: Student) {
-    STUDENTS_DB.push(payload)
-    return this.getStudents();
+    return this.httpClient.post<Student>(`${environment.apiURL}/students`, payload).pipe(mergeMap(() => this.getStudents()));
   }
 
   deleteStudent(studentId: number) {
-    STUDENTS_DB = STUDENTS_DB.filter ((student) => student.id !== studentId);
-    return this.getStudents(); 
+    return this.httpClient.delete<Student>(`${environment.apiURL}/students/${studentId}`).pipe(mergeMap(() => this.getStudents()));
   }
 
-  getStudentById(id: number | string): Observable < Student | undefined > {
-    
-    return of(STUDENTS_DB.find((student) => student.id == id)).pipe(delay(1500));
-    
+  getStudentById(studentId: number | string): Observable<Student | undefined> {
+    return this.httpClient.get<Student>(`${environment.apiURL}/students/${studentId}`);
   }
 }

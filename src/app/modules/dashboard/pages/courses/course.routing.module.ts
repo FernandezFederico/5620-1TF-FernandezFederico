@@ -9,9 +9,9 @@ const routes: Routes = [
 		component: CoursesComponent,
 	},
 	{
-    path: ':id',
-    component: CourseDetailComponent,
-  }
+		path: ':id',
+		component: CourseDetailComponent,
+	}
 ];
 
 @NgModule({

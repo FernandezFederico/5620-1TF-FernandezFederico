@@ -6,6 +6,7 @@ import { AlertsService } from '../../../../../../core/services/alerts.service';
 import { Student } from '../../interface/index';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentsModalComponent } from '../students-modal/students-modal.component';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
@@ -24,6 +25,7 @@ export class StudentsComponent implements OnInit {
     this.loadingService.setLoading(true)
     this.studentsService.getStudents().subscribe({
       next: (students) => {
+
         this.dataSource = students
       },
       complete: () => {
@@ -36,7 +38,7 @@ export class StudentsComponent implements OnInit {
 
   onStudentSubmit(ev: Student): void {
     this.loadingService.setLoading(true);
-    this.studentsService.studentSubmit({ ...ev, id: this.dataSource.length + 1 }).subscribe({
+    this.studentsService.studentSubmit(ev).subscribe({
       next: (student) => {
         this.dataSource = [...student];
       },

@@ -23,7 +23,7 @@ export class CoursesComponent implements OnInit {
     this.loadingService.setLoading(true)
     this.coursesService.getCourses().subscribe({
       next: (courses) => {
-        this.dataSource = courses;
+        this.dataSource = courses
       },
       complete: () => {
         this.loadingService.setLoading(false);

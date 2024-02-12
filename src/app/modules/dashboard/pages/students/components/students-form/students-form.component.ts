@@ -13,9 +13,9 @@ export class StudentsFormComponent {
     this.studentForm = this.fb.group({
       firstName: this.fb.control('', [Validators.required, Validators.minLength(2)]),
       lastName: this.fb.control('', [Validators.required, Validators.minLength(2)]),
-      email: this.fb.control('', [Validators.required, Validators.email, Validators.minLength(6), Validators.maxLength(12)]),
+      email: this.fb.control('', [Validators.required, Validators.email, Validators.minLength(6)]),
       address: this.fb.control('', [Validators.required, Validators.minLength(2)]),
-      phone: this.fb.control('', [Validators.required, Validators.minLength(7), Validators.pattern('^[0-9]*$')]),
+      phone: this.fb.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]*$')]),
       password: this.fb.control('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
       role: this.fb.control('', [Validators.required, Validators.minLength(2)]),
     });

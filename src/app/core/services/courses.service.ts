@@ -1,50 +1,43 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../../modules/dashboard/pages/courses/interface';
-import { Observable, delay, of } from 'rxjs';
+import { Observable, catchError, delay, mergeMap, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+import { AlertsService } from './alerts.service';
 
-
-let COURSES_DB: Course[] = [
-  {
-    id: 1,
-    courseName: "Curso Test",
-    startDate: new Date(),
-    endDate: new Date(),
-    profesor: "Test Test",
-    group: "testGroup"
-
-  }
-]
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient, private alertsService: AlertsService) { }
 
   getCourses() {
-    return of(COURSES_DB).pipe(delay(1500));
+    return this.httpClient.get<Course[]>(`${environment.apiURL}/courses`).pipe(
+      catchError((error) => {
+        this.alertsService.showErrorAlert('Ups!', 'Error al cargar los Cursos')
+        return of([])
+      }
+
+      )
+    );
   }
 
-  createCourse(data: Course){
-    COURSES_DB = [...COURSES_DB, {...data, id: COURSES_DB.length + 1 }]; 
-    return this.getCourses();
+  createCourse(data: Course){; 
+    return this.httpClient.post<Course>(`${environment.apiURL}/courses`, data).pipe(mergeMap(() => this.getCourses()));
   }
 
-  updateCourseById(id: number, datar: Course){
-    COURSES_DB = COURSES_DB.map((el) => el.id === id ? {...el, ...datar} : el);
-    return this.getCourses();
+  updateCourseById(courseId: number, data: Course){
+    return this.httpClient.put<Course[]>(`${environment.apiURL}/courses/${courseId}` , data).pipe(mergeMap(()=> this.getCourses()));
   }
 
   deleteCourse(courseId: number) {
-    COURSES_DB = COURSES_DB.filter ((course) => course.id !== courseId);
-    return this.getCourses();
+    return this.httpClient.delete<Course>(`${environment.apiURL}/courses/${courseId}`).pipe(mergeMap(()=> this.getCourses()));
   }
 
-  getCourseById(id: number | string): Observable < Course | undefined > {
-
-    return of(COURSES_DB.find((course) => course.id == id)).pipe(delay(1500));
-
+  getCourseById(courseId: number | string): Observable < Course | undefined > {
+    return this.httpClient.get<Course>(`${environment.apiURL}/courses/${courseId}`);
   }
 }
 

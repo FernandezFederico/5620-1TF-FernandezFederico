@@ -1,0 +1,42 @@
+{
+  "students": [
+    {
+      "id": "b96f",
+      "firstName": "test",
+      "lastName": "test",
+      "email": "test@test.com",
+      "address": "test",
+      "phone": "1234567890",
+      "password": "123456789",
+      "role": "ADMIN"
+    },
+    {
+      "id": "27a3",
+      "firstName": "Test2",
+      "lastName": "Test2",
+      "email": "Test2@Test2.com",
+      "address": "Test2",
+      "phone": "1323456987",
+      "password": "Test21123",
+      "role": "USER"
+    }
+  ],
+  "courses": [
+    {
+      "courseName": "TEST",
+      "startDate": "2024-02-28T03:00:00.000Z",
+      "endDate": "2024-02-29T03:00:00.000Z",
+      "profesor": "TEST",
+      "group": "TEST",
+      "id": "ff03"
+    },
+    {
+      "id": "7526",
+      "courseName": "test2",
+      "startDate": "2024-02-13T03:00:00.000Z",
+      "endDate": "2024-02-13T03:00:00.000Z",
+      "profesor": "test2",
+      "group": "test2"
+    }
+  ]
+}
