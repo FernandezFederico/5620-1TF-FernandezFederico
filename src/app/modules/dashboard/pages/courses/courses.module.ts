@@ -7,7 +7,7 @@ import { CoursesComponent } from './components/courses-table/courses.component';
 import { CoursesModalComponent } from './components/courses-modal/courses-modal.component';
 import { SharedModule } from '../../../shared/shared.module';
 import { CourseDetailComponent } from './pages/course-detail/course-detail.component';
-import { CourseRoutingModule } from './course.routing.module';
+import { CoursesRoutingModule } from './courses.routing.module';
 
 
 
@@ -21,11 +21,11 @@ import { CourseRoutingModule } from './course.routing.module';
     CommonModule,
     SharedModule,
     RouterModule,
-    CourseRoutingModule,
+    CoursesRoutingModule,
 
     
   ], exports: [
     CoursesComponent,
   ]
 })
-export class  CoursesModule { }
+export class CoursesModule { }

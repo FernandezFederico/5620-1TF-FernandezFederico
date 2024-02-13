@@ -15,8 +15,8 @@ export class CoursesComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private loadingService: LoadingService,
     private coursesService: CoursesService,
+    private loadingService: LoadingService,
   ) { }
 
   ngOnInit(): void {
