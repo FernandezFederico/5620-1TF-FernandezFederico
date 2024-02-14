@@ -5,20 +5,11 @@ import { AlertsService } from './alerts.service';
 import Swal, { SweetAlertOptions } from 'sweetalert2';
 import { Observable, delay, finalize, map, of, tap } from 'rxjs';
 import { LoadingService } from './loading.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 interface loginData {
   email: null | string;
   password: null | string;
-}
-
-const MOCK_USER = {
-  id: 1,
-  firstName: "test",
-  lastName: "test",
-  email: "test@test.com",
-  address: "Calle test 123",
-  phone: "123456789",
-  password: "123456",
-  role: "ADMIN",
 }
 
 @Injectable({ providedIn: 'root' })
@@ -28,26 +19,32 @@ export class AuthService {
   constructor(
     private router: Router,
     private alertsService: AlertsService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private httpClient: HttpClient,
   ) { };
 
-
-  private setAuthUSer(mock_user: Student): void {
-    this.authUser = mock_user;
+  private setAuthUSer(student: Student): void {
+    this.authUser = student;
     localStorage.setItem(
       'token',
-      '132321jug3215kjh33lkj13543hjg21335135'
+      student.token
     )
   }
 
-  login(data: loginData): void {
-
-    if (data.email === MOCK_USER.email && data.password === MOCK_USER.password) {
-      this.setAuthUSer(MOCK_USER);
-      this.router.navigate(['dashboard', 'home']);
-    } else {
-      this.alertsService.showErrorAlert("Error", "Usuario o contraseña invalida");
-    }
+  login(data: loginData): Observable<Student[]> {
+    return this.httpClient
+      .get<Student[]>(
+        `${environment.apiURL}/students?email=${data.email}&password=${data.password}`
+      ).pipe(
+        tap((response) => {
+          if (!!response[0]) {
+            this.setAuthUSer(response[0])
+            this.router.navigate(['dashboard', 'home']);
+          } else {
+            this.alertsService.showErrorAlert('Ups!', 'Email o contraseña incorrectos');
+          }
+        })
+      )
 
   }
 
@@ -57,15 +54,21 @@ export class AuthService {
     localStorage.removeItem('token')
   }
   verifyToken() {
-    this.loadingService.setLoading(true);
-    return of(localStorage.getItem('token')).pipe(
-      delay(1500),
-      map((response) => !!response),
-      tap(() => {
-        this.setAuthUSer(MOCK_USER);
-      }),
-      finalize(() => this.loadingService.setLoading(false))
-    );
+    return this.httpClient.get<Student[]>(
+      `${environment.apiURL}/students?token=${localStorage.getItem('token')}`
+    ).pipe(
+      map((response) => {
+        if (response.length) {
+          this.setAuthUSer(response[0])
+          return true;
+        } else {
+          this.authUser = null;
+          localStorage.removeItem('token');
+          return false;
+        }
+      })
+    )
+
   }
 
 }

@@ -7,4 +7,5 @@ export interface Student {
     phone: string;
     password: string;
     role: string;
+    token: string;
 }

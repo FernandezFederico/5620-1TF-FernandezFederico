@@ -1,24 +1,26 @@
 {
   "students": [
     {
-      "id": "b96f",
-      "firstName": "test",
-      "lastName": "test",
+      "id": "5759",
+      "firstName": "test1",
+      "lastName": "test1",
       "email": "test@test.com",
       "address": "test",
       "phone": "1234567890",
-      "password": "123456789",
-      "role": "ADMIN"
+      "password": "123456",
+      "role": "ADMIN",
+      "token": "4YJULmfKvOZpBWl"
     },
     {
-      "id": "27a3",
-      "firstName": "Test2",
-      "lastName": "Test2",
-      "email": "Test2@Test2.com",
-      "address": "Test2",
-      "phone": "1323456987",
-      "password": "Test21123",
-      "role": "USER"
+      "id": "52c0",
+      "firstName": "test2",
+      "lastName": "test2",
+      "email": "test@test.com",
+      "address": "test",
+      "phone": "0987654321",
+      "password": "123456",
+      "role": "USER",
+      "token": "uPlUuaRD6JSdeyx"
     }
   ],
   "courses": [

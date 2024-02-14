@@ -12,6 +12,16 @@ export class StudentsService {
 
   constructor(private httpClient: HttpClient, private alertsService: AlertsService) { }
 
+    generateRandomString(length:number){
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
   getStudents() {
     return this.httpClient.get<Student[]>(`${environment.apiURL}/students`).pipe(
       catchError((error) => {
@@ -24,7 +34,7 @@ export class StudentsService {
   }
 
   studentSubmit(payload: Student) {
-    return this.httpClient.post<Student>(`${environment.apiURL}/students`, payload).pipe(mergeMap(() => this.getStudents()));
+    return this.httpClient.post<Student>(`${environment.apiURL}/students`, {...payload, token: this.generateRandomString(15)}).pipe(mergeMap(() => this.getStudents()));
   }
 
   deleteStudent(studentId: number) {

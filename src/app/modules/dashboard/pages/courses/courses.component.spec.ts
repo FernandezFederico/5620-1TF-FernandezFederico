@@ -8,8 +8,8 @@ describe('Pruebas CoursesComponent', () => {
 
   let component: CoursesComponent;
 
-  beforeEach( () => {
-     TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [CoursesComponent],
       providers: [
         MockProvider(CoursesService),
