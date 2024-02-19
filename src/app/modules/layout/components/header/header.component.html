@@ -1,14 +1,27 @@
-<mat-toolbar  class="header">
+<mat-toolbar class="header">
   <div class="header__main">
-    <button (click)="onToggleSidenav()" type="button" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button (click)="onToggleSidenav()" type="button" mat-icon-button class="example-icon"
+      aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
     <h1>ADMIN - APP</h1>
   </div>
-  <button  mat-icon-button [matMenuTriggerFor]="beforeMenu" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon >person</mat-icon>
-  </button>
-  <mat-menu #beforeMenu="matMenu" xPosition="before">
-    <button (click)="onLogOut()" mat-menu-item>Cerrar Sesión</button>
-  </mat-menu>
+  <div *ngIf="authUser$" class="data__container">
+    <div class="data__name">
+      <span>
+        {{ (authUser$ | async)?.firstName }}
+        {{ (authUser$ | async)?.lastName }}
+      </span>
+      <span>
+        {{ (authUser$ | async)?.email }}
+      </span>
+    </div>
+    <button mat-icon-button [matMenuTriggerFor]="beforeMenu" class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon">
+      <mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button (click)="onLogOut()" mat-menu-item>Cerrar Sesión</button>
+    </mat-menu>
+  </div>
 </mat-toolbar>

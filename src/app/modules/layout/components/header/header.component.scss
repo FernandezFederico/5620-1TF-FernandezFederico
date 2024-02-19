@@ -18,4 +18,19 @@
         color:chocolate;
     }
 
+    .data__container{
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        .data__name{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+    }
+
 }

@@ -7,6 +7,8 @@ import { Observable, delay, finalize, map, of, tap } from 'rxjs';
 import { LoadingService } from './loading.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { Store } from '@ngrx/store';
+import { AuthActions } from '../store/auth/actions/auth.actions';
 interface loginData {
   email: null | string;
   password: null | string;
@@ -14,17 +16,18 @@ interface loginData {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  authUser: Student | null = null;
-  LoadingService: any;
+
   constructor(
     private router: Router,
     private alertsService: AlertsService,
     private loadingService: LoadingService,
     private httpClient: HttpClient,
+    private store: Store,
   ) { };
 
   private setAuthUSer(student: Student): void {
-    this.authUser = student;
+    this.store.dispatch(AuthActions.setAuthStudent({student}))
+
     localStorage.setItem(
       'token',
       student.token
@@ -32,6 +35,7 @@ export class AuthService {
   }
 
   login(data: loginData): Observable<Student[]> {
+    this.loadingService.setLoading(true)
     return this.httpClient
       .get<Student[]>(
         `${environment.apiURL}/students?email=${data.email}&password=${data.password}`
@@ -40,8 +44,10 @@ export class AuthService {
           if (!!response[0]) {
             this.setAuthUSer(response[0])
             this.router.navigate(['dashboard', 'home']);
+            this.loadingService.setLoading(false)
           } else {
             this.alertsService.showErrorAlert('Ups!', 'Email o contraseña incorrectos');
+            this.loadingService.setLoading(false)
           }
         })
       )
@@ -49,7 +55,7 @@ export class AuthService {
   }
 
   Logout(): void {
-    this.authUser = null;
+    this.store.dispatch(AuthActions.logOut())
     this.router.navigate(['auth', 'login']);
     localStorage.removeItem('token')
   }
@@ -62,7 +68,7 @@ export class AuthService {
           this.setAuthUSer(response[0])
           return true;
         } else {
-          this.authUser = null;
+          this.store.dispatch(AuthActions.logOut())
           localStorage.removeItem('token');
           return false;
         }
