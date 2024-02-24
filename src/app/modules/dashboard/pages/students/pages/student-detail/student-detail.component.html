@@ -1,1 +1,29 @@
-<p>student-detail works!</p>
+<div *ngIf="student">
+  <h2>Detalles del estudiante | !!!pasar a tabla de angular material</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <td>{{ student.id }}</td>
+    </tr>
+    <tr>
+      <th>Nombre</th>
+      <td>{{ student.firstName }} {{ student.lastName }}</td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td>{{ student.email }}</td>
+    </tr>
+    <tr>
+      <th>Dirección</th>
+      <td>{{ student.address }}</td>
+    </tr>
+    <tr>
+      <th>Teléfono</th>
+      <td>{{ student.phone }}</td>
+    </tr>
+    <tr>
+      <th>Rol</th>
+      <td>{{ student.role }}</td>
+    </tr>
+    <!-- No es recomendable mostrar la contraseña ni el token en la tabla -->
+  </table>

@@ -9,15 +9,21 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'students',
+    loadChildren: () => import('./pages/students/students.module').then(
+      (m) => m.StudentsModule
+    )
+  },
+  {
     path: 'courses',
     loadChildren: () => import('./pages/courses/courses.module').then(
       (m) => m.CoursesModule
     ),
   },
   {
-    path: 'students',
-    loadChildren: () => import('./pages/students/students.module').then(
-      (m) => m.StudentsModule
+    path: 'registrations',
+    loadChildren: () => import('./pages/registrations/registrations.module').then(
+      (m) => m.RegistrationsModule
     )
   },
   {

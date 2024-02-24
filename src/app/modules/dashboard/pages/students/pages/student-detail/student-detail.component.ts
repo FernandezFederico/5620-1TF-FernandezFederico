@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, } from '@angular/router';
 import { StudentsService } from '../../../../../../core/services/students.service';
 import { LoadingService } from '../../../../../../core/services/loading.service';
+import { Student } from '../../interface';
 
 @Component({
   selector: 'app-student-detail',
@@ -9,6 +10,7 @@ import { LoadingService } from '../../../../../../core/services/loading.service'
   styleUrl: './student-detail.component.scss'
 })
 export class StudentDetailComponent {
+  student: Student | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -17,8 +19,8 @@ export class StudentDetailComponent {
   ) {
     this.loadingService.setLoading(true);
     this.studentsService.getStudentById(this.route.snapshot.params['id']).subscribe({
-      next: (finedStudent) =>{
-        console.log(finedStudent);
+      next: (foundStudent) =>{
+        this.student = foundStudent;
       },
       complete: () => {
         this.loadingService.setLoading(false);

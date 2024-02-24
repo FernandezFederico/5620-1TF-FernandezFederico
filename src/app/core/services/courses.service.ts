@@ -29,7 +29,7 @@ export class CoursesService {
   }
 
   updateCourseById(courseId: number, data: Course){
-    return this.httpClient.put<Course[]>(`${environment.apiURL}/courses/${courseId}` , data).pipe(mergeMap(()=> this.getCourses()));
+    return this.httpClient.put<Course[]>(`${environment.apiURL}/courses/${courseId}`, data).pipe(mergeMap(()=> this.getCourses()));
   }
 
   deleteCourse(courseId: number) {

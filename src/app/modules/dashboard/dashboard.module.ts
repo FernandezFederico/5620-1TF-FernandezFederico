@@ -11,6 +11,7 @@ import { CoursesModule } from './pages/courses/courses.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
 
+
 @NgModule({
   declarations: [
     DashboardComponent
@@ -22,7 +23,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     LayoutModule,
     DashboardRoutingModule,
     StudentsModule,
-    CoursesModule
+    CoursesModule,
   ],
   exports: [
     DashboardComponent,

@@ -3,7 +3,7 @@ import { Student } from '../../modules/dashboard/pages/students/interface';
 import { Router } from '@angular/router';
 import { AlertsService } from './alerts.service';
 import Swal, { SweetAlertOptions } from 'sweetalert2';
-import { Observable, delay, finalize, map, of, tap } from 'rxjs';
+import { Observable, catchError, delay, finalize, map, of, tap } from 'rxjs';
 import { LoadingService } from './loading.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
@@ -72,8 +72,9 @@ export class AuthService {
           localStorage.removeItem('token');
           return false;
         }
-      })
-    )
+      }),
+      catchError(() => of(false))
+    );
 
   }
 
