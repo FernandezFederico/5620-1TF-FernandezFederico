@@ -1,0 +1,17 @@
+.table__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+  .add__registration {
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+  }
+}
+
+a {
+  cursor: pointer;
+}

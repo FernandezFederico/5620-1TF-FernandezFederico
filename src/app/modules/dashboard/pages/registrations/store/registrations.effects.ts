@@ -14,7 +14,6 @@ export class RegistrationsEffects {
 
       ofType(RegistrationsActions.loadRegistrations),
       concatMap(() =>
-        /** An EMPTY observable only emits completion. Replace with your own observable API request */
         this.registrationsService.getRegistrations().pipe(
           map(data => RegistrationsActions.loadRegistrationsSuccess({ data })),
           catchError(error => of(RegistrationsActions.loadRegistrationsFailure({ error }))))

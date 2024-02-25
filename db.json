@@ -41,12 +41,5 @@
       "group": "test2"
     }
   ],
-  "registrations": [
-    {
-      "id": "8649",
-      "studentId": "5759",
-      "courseId": "7526",
-      "date": "2024-02-28T03:00:00.000Z"
-    }
-  ]
+  "registrations": []
 }

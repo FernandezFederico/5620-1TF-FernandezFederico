@@ -1,0 +1,61 @@
+<div *ngIf="isLoading$ | async; else notLoading">
+  cargando...
+</div>
+
+<ng-template #notLoading>
+  <div class="table__container form mat-elevation-z8">
+
+    <h2 appTittleFontSize>Inscripciones</h2>
+
+    <div class="add__registration">
+      <button type="button" mat-raised-button color="primary">Agregar</button>
+    </div>
+
+    <table *ngIf="dataSource.length > 0" class="courses__table" mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let registrations"> {{registrations.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fullName">
+        <th mat-header-cell *matHeaderCellDef> Alumno </th>
+        <td mat-cell *matCellDef="let registrations">{{registrations.studentId + ' - '}} {{registrations.student |
+          fullName : "firstUpper"}} </td>
+      </ng-container>
+      <ng-container matColumnDef="courseName">
+        <th mat-header-cell *matHeaderCellDef> Curso </th>
+        <td mat-cell *matCellDef="let registrations"> {{registrations.courseId + ' - ' +
+          registrations.course.courseName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Fecha de Inscripción </th>
+        <td mat-cell *matCellDef="let registrations"> {{registrations.date | date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let registrations">
+
+          <button mat-icon-button color="black" [routerLink]="registrations.id">
+            <mat-icon>visibility</mat-icon>
+          </button>
+
+          <button mat-icon-button color="black">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="onDeleteRegistration(registrations)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <p *ngIf="dataSource.length === 0"> No hay estudiantes para mostrar</p>
+  </div>
+  <pre>{{registrations$ | async | json}}</pre>
+</ng-template>
