@@ -44,4 +44,8 @@ export class StudentsService {
   getStudentById(studentId: number | string): Observable<Student | undefined> {
     return this.httpClient.get<Student>(`${environment.apiURL}/students/${studentId}`);
   }
+
+  getAllStudents(){
+    return this.httpClient.get<Student[]>(`${environment.apiURL}/students?role=STUDENT`);
+  }
 }

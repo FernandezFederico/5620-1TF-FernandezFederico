@@ -3,11 +3,13 @@ import { Store } from '@ngrx/store';
 import { RegistrationsActions } from '../../store/registrations.actions';
 import { selectLoading, selectRegistrations } from '../../store/registrations.selectors';
 import { Observable } from 'rxjs';
-import { Registrations } from '../../interface';
+import { Registration } from '../../interface';
 import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { RegistrationsService } from '../../../../../../core/services/registrations.service';
 import { LoadingService } from '../../../../../../core/services/loading.service';
+import { MatButtonModule } from '@angular/material/button';
+import { RegistrationsModalComponent } from '../registrations-modal/registrations-modal.component';
 
 
 @Component({
@@ -16,17 +18,17 @@ import { LoadingService } from '../../../../../../core/services/loading.service'
   styleUrl: './registrations.component.scss'
 })
 export class RegistrationsComponent implements OnInit {
-  registrations$!: Observable<Registrations[]>;
+  registrations$!: Observable<Registration[]>;
   isLoading$!: Observable<boolean>;
 
   displayedColumns: string[] = ['id', 'fullName', 'courseName', 'date', 'actions'];
-  dataSource: Registrations[] = [];
+  dataSource: Registration[] = [];
 
   constructor(
-    public dialog: MatDialog,
     private store: Store<any>,
     private registrationService: RegistrationsService,
     private loadingService: LoadingService,
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit() {
@@ -41,7 +43,13 @@ export class RegistrationsComponent implements OnInit {
     })
   }
 
-  onDeleteRegistration(ev: Registrations): void {
+  onCreateRegistration(): void {
+    this.dialog.open(RegistrationsModalComponent).afterClosed().subscribe({
+      
+    })
+  }
+
+  onDeleteRegistration(ev: Registration): void {
     Swal.fire({
       title: "Quieres ELIMINAR la inscripción?",
       text: "No podrás revertir los cambios!",
@@ -58,7 +66,7 @@ export class RegistrationsComponent implements OnInit {
             this.dataSource = [...registrations]
           },
           complete: () => {
-            this.loadingService.setLoading(true);
+            this.loadingService.setLoading(false);
             Swal.fire({
               title: "BORRADA!",
               text: "Instrucción borrado",

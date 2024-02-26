@@ -1,1 +1,32 @@
-<p>registrations-modal works!</p>
+<h2 class="form__title" appTittleFontSize>Agregar curso</h2>
+<mat-dialog-content>
+  <form [formGroup]="registrationsForm" class="form__container">
+
+    <mat-form-field>
+      <mat-label>Alumno</mat-label>
+      <mat-select formControlName="studentId">
+        <mat-option [value]="student.id" *ngFor="let student of students$ | async">
+          {{student.firstName}} {{student.lastName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Curso</mat-label>
+      <mat-select formControlName="courseId">
+        <mat-option [value]="course.id" *ngFor="let course of courses$ | async">
+          {{course.courseName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="form__actions">
+  <button (click)="onSubmit()" class="form__button" mat-raised-button color="primary" class="dialog__button">
+    Guardar
+  </button>
+  <button mat-dialog-close class="form__button" mat-raised-button color="warn" class="dialog__button">
+    Cancelar
+  </button>
+</mat-dialog-actions>

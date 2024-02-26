@@ -21,6 +21,17 @@
       "password": "123456",
       "role": "USER",
       "token": "uPlUuaRD6JSdeyx"
+    },
+    {
+      "id": "31d8",
+      "firstName": "student",
+      "lastName": "student",
+      "email": "student@student.com",
+      "address": "student",
+      "phone": "1234567890",
+      "password": "123456",
+      "role": "STUDENT",
+      "token": "OyFUeCwZISiW4Le"
     }
   ],
   "courses": [
@@ -41,5 +52,11 @@
       "group": "test2"
     }
   ],
-  "registrations": []
+  "registrations": [
+    {
+      "id": "5fd6",
+      "studentId": "31d8",
+      "courseId": "ff03"
+    }
+  ]
 }

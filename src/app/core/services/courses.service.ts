@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../../modules/dashboard/pages/courses/interface';
-import { Observable, catchError, delay, mergeMap, of } from 'rxjs';
+import { Observable, catchError, delay, finalize, mergeMap, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { AlertsService } from './alerts.service';
@@ -19,7 +19,6 @@ export class CoursesService {
         this.alertsService.showErrorAlert('Ups!', 'Error al cargar los Cursos')
         return of([])
       }
-
       )
     );
   }

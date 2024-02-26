@@ -8,3 +8,5 @@ export const selectRegistrationsState = createFeatureSelector<fromRegistrations.
 
 export const selectRegistrations = createSelector(selectRegistrationsState, (state) => state.registrations);
 export const selectLoading = createSelector(selectRegistrationsState, (state) => state.loading);
+export const selectStudents = createSelector(selectRegistrationsState, (state) => state.students);
+export const selectCourses = createSelector(selectRegistrationsState, (state) => state.courses);

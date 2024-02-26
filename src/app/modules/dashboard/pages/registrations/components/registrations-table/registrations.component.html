@@ -8,7 +8,7 @@
     <h2 appTittleFontSize>Inscripciones</h2>
 
     <div class="add__registration">
-      <button type="button" mat-raised-button color="primary">Agregar</button>
+      <button type="button" mat-raised-button color="primary" (click)="onCreateRegistration()">Agregar</button>
     </div>
 
     <table *ngIf="dataSource.length > 0" class="courses__table" mat-table [dataSource]="dataSource">
@@ -57,5 +57,4 @@
 
     <p *ngIf="dataSource.length === 0"> No hay estudiantes para mostrar</p>
   </div>
-  <pre>{{registrations$ | async | json}}</pre>
 </ng-template>

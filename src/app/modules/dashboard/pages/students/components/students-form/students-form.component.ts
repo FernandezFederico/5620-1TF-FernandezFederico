@@ -17,7 +17,7 @@ export class StudentsFormComponent {
       address: this.fb.control('', [Validators.required, Validators.minLength(2)]),
       phone: this.fb.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]*$')]),
       password: this.fb.control('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
-      role: this.fb.control('', [Validators.required, Validators.minLength(2)]),
+      role: this.fb.control('', Validators.required),
     });
 
   }
