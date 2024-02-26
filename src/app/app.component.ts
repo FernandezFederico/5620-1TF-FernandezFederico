@@ -10,10 +10,16 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'pf-Fernandez-Federico';
 
-  isLoading$: Observable<boolean>;
-  
+  isLoading = false;
+
   constructor(private loadingService: LoadingService) {
-    this.isLoading$ = this.loadingService.isLoading$;
+    this.loadingService.isLoading$.subscribe({
+      next: (v) => {
+        setTimeout(() => {
+          this.isLoading = v;
+        });
+      },
+    });
   }
-  
+
 }

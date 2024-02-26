@@ -30,8 +30,13 @@ export class CoursesModalComponent {
     }
   }
 
-  onSave() {
-    this.dialogRef.close(this.courseForm.value)
+  onSave(): void {
+    if (this.courseForm.valid) {
+      this.dialogRef.close(this.courseForm.value);
+    } else {
+      this.courseForm.markAllAsTouched();
+    };
+    this.dialogRef.close();
   }
 
 }

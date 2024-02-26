@@ -42,14 +42,6 @@
       "profesor": "TEST",
       "group": "TEST",
       "id": "ff03"
-    },
-    {
-      "id": "7526",
-      "courseName": "test2",
-      "startDate": "2024-02-13T03:00:00.000Z",
-      "endDate": "2024-02-13T03:00:00.000Z",
-      "profesor": "test2",
-      "group": "test2"
     }
   ],
   "registrations": [

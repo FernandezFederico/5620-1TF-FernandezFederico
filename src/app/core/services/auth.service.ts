@@ -16,6 +16,7 @@ interface loginData {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  authUser: Student | undefined;
 
   constructor(
     private router: Router,
@@ -31,7 +32,8 @@ export class AuthService {
     localStorage.setItem(
       'token',
       student.token
-    )
+    );
+    this.authUser = student;
   }
 
   login(data: loginData): Observable<Student[]> {

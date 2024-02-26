@@ -21,7 +21,7 @@ describe('Prueba del AuthService', () => {
     expect(authService).toBeTruthy()
   });
 
-  it(' o', () => {
+  it(' Login debe retornar un estudiante', () => {
 
     const MOCK_RESPONSE: Student[] = [
       {
@@ -34,12 +34,13 @@ describe('Prueba del AuthService', () => {
         password: "123456",
         role: "ADMIN",
         token: "kd2sh4dsf21154fsf1dsf4gs3abc"
-      }
-    ]
+      },
+    ];
 
 
     authService.login({ email: 'mosck@mock.com', password: '123456' }).subscribe({
-      next: (student) => {
+      
+      next: () => {
         expect(authService.authUser).toBeTruthy();
         expect(authService.authUser).toEqual(MOCK_RESPONSE[0]);
       }
