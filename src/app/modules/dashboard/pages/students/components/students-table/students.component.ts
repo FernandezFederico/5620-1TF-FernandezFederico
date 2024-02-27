@@ -6,7 +6,6 @@ import { AlertsService } from '../../../../../../core/services/alerts.service';
 import { Student } from '../../interface/index';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentsModalComponent } from '../students-modal/students-modal.component';
-import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
@@ -26,7 +25,7 @@ export class StudentsComponent implements OnInit {
     this.studentsService.getStudents().subscribe({
       next: (students) => {
 
-        this.dataSource = students
+        this.dataSource = students;
       },
       complete: () => {
         this.loadingService.setLoading(false)
@@ -36,19 +35,40 @@ export class StudentsComponent implements OnInit {
   displayedColumns: string[] = ['id', 'fullName', 'email', 'address', 'phone', 'password', 'role', 'actions'];
   dataSource: Student[] = [];
 
-  onStudentSubmit(ev: Student): void {
-    this.loadingService.setLoading(true);
-    this.studentsService.studentSubmit(ev).subscribe({
-      next: (student) => {
-        this.dataSource = [...student];
-      },
-      complete: () => {
-        this.alertsService.showSuccessAlert("Estudiante creado", "Estudiante creado exitosamente");
-        this.loadingService.setLoading(false);
+  onStudentSubmit(): void {
+    this.dialog.open(StudentsModalComponent).afterClosed().subscribe({
+      next: (result) => {
+        if (result) {
+          this.loadingService.setLoading(true)
+          this.studentsService.studentSubmit(result).subscribe({
+            next: (courses) => (this.dataSource = courses),
+            complete: () => {
+              this.alertsService.showSuccessAlert("Curso creado", "Curso creado exitosamente");
+              this.loadingService.setLoading(false);
+            }
+          })
+        }
       }
+
     });
+  }
 
-
+  onEditStudent(student: Student): void {
+    this.dialog.open(StudentsModalComponent, {
+      data: student,
+    }).afterClosed().subscribe({
+      next: (result) => {
+        if (result) {
+          this.loadingService.setLoading(true)
+          this.studentsService.updateStudentById(student.id, result).subscribe({
+            next: (courses) => (this.dataSource = courses),
+            complete: () => {
+              this.loadingService.setLoading(false);
+            }
+          })
+        }
+      }
+    })
   }
 
   onDeleteStudent(ev: Student): void {
@@ -79,31 +99,6 @@ export class StudentsComponent implements OnInit {
 
       }
     });
-
-
-
-  }
-
-  OnEditStudent(student: Student): void {
-
-  }
-
-  OnShowStudent(student: Student): void {
-
-  }
-
-  //método para abrir el modal de modificar el estudiante
-  openModal(id: number): void {
-    const dialogRef = this.dialog.open(StudentsModalComponent, {
-      disableClose: true,
-      data: { id: id }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: cerrado`);
-    });
-
-
   }
 
 }

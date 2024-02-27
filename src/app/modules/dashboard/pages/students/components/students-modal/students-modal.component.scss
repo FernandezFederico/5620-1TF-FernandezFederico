@@ -1,28 +1,23 @@
-mat-dialog-content {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
+.form__title {
+	text-align: center;
+}
 
-    .form__container {
-        width: auto;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        margin-bottom: 30px;
-        padding-bottom: 30px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
+.form__container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 20px;
 
-        .form__field {
-            min-width: 30%;
-            margin: 10px;
-        }
-    }
+	.form__field {
+		min-width: 150px;
+	}
 
+}
 
+.form__actions {
+	display: flex;
+	justify-content: end;
+	margin-right: 20px;
 }

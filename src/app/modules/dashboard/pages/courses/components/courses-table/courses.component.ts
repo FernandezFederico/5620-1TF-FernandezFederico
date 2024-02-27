@@ -17,6 +17,7 @@ export class CoursesComponent implements OnInit {
     public dialog: MatDialog,
     private coursesService: CoursesService,
     private loadingService: LoadingService,
+    private alertsService: AlertsService,
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +44,7 @@ export class CoursesComponent implements OnInit {
           this.coursesService.createCourse(result).subscribe({
             next: (courses) => (this.dataSource = courses),
             complete: () => {
+              this.alertsService.showSuccessAlert("Curso creado", "Curso creado exitosamente");
               this.loadingService.setLoading(false);
             }
           })
@@ -71,7 +73,6 @@ export class CoursesComponent implements OnInit {
     })
 
   }
-
 
   onDeleteCourse(ev: Course): void {
     Swal.fire({

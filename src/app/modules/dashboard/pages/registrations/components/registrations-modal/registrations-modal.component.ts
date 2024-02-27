@@ -38,6 +38,6 @@ export class RegistrationsModalComponent {
     } else {
       this.store.dispatch(RegistrationsActions.createRegistration({data: this.registrationsForm.value}));
     };
-    this.matDialogRef.close(); 
+    this.matDialogRef.close();
   }
 }

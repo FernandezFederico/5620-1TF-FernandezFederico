@@ -35,8 +35,7 @@ export class CoursesModalComponent {
       this.dialogRef.close(this.courseForm.value);
     } else {
       this.courseForm.markAllAsTouched();
-    };
-    this.dialogRef.close();
+    }
   }
 
 }

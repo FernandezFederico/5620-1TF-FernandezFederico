@@ -11,7 +11,6 @@ import { LoadingService } from '../../../../../../core/services/loading.service'
 import { MatButtonModule } from '@angular/material/button';
 import { RegistrationsModalComponent } from '../registrations-modal/registrations-modal.component';
 
-
 @Component({
   selector: 'app-registrations',
   templateUrl: './registrations.component.html',
@@ -21,7 +20,7 @@ export class RegistrationsComponent implements OnInit {
   registrations$!: Observable<Registration[]>;
   isLoading$!: Observable<boolean>;
 
-  displayedColumns: string[] = ['id', 'fullName', 'courseName', 'date', 'actions'];
+  displayedColumns: string[] = ['id', 'fullName', 'courseName', 'profesor','actions'];
   dataSource: Registration[] = [];
 
   constructor(

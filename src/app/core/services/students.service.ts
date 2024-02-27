@@ -37,6 +37,10 @@ export class StudentsService {
     return this.httpClient.post<Student>(`${environment.apiURL}/students`, {...payload, token: this.generateRandomString(15)}).pipe(mergeMap(() => this.getStudents()));
   }
 
+  updateStudentById(studentId: number, data: Student) {
+    return this.httpClient.put<Student[]>(`${environment.apiURL}/students/${studentId}`, data).pipe(mergeMap(() => this.getStudents()));
+  }
+
   deleteStudent(studentId: number) {
     return this.httpClient.delete<Student>(`${environment.apiURL}/students/${studentId}`).pipe(mergeMap(() => this.getStudents()));
   }

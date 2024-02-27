@@ -8,7 +8,6 @@ export interface Registration {
   courseId: string;
   student?: Student;
   course?: Course;
-  date: Date;
 }
 
 export interface CreateRegistrationsData {
