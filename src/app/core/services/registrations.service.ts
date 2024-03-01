@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Registration, CreateRegistrationsData } from '../../modules/dashboard/pages/registrations/interface';
-import { finalize, mergeMap } from 'rxjs';
+import { finalize, mergeMap, of } from 'rxjs';
 import { LoadingService } from './loading.service';
 
 @Injectable({

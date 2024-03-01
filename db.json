@@ -1,17 +1,6 @@
 {
   "students": [
     {
-      "id": "5759",
-      "firstName": "test1",
-      "lastName": "test1",
-      "email": "test@test.com",
-      "address": "test",
-      "phone": "1234567890",
-      "password": "123456",
-      "role": "ADMIN",
-      "token": "4YJULmfKvOZpBWl"
-    },
-    {
       "id": "52c0",
       "firstName": "test2",
       "lastName": "test2",
@@ -61,6 +50,11 @@
       "id": "32fa",
       "studentId": "347b",
       "courseId": "bbaf"
+    },
+    {
+      "id": "e778",
+      "studentId": "347b",
+      "courseId": "ff03"
     }
   ]
 }

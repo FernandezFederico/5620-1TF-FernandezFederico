@@ -4,6 +4,7 @@ import { Observable, catchError, mergeMap, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { AlertsService } from './alerts.service';
+import { Registration } from '../../modules/dashboard/pages/registrations/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -37,17 +38,21 @@ export class StudentsService {
     return this.httpClient.post<Student>(`${environment.apiURL}/students`, {...payload, token: this.generateRandomString(15)}).pipe(mergeMap(() => this.getStudents()));
   }
 
-  updateStudentById(studentId: number, data: Student) {
+  updateStudentById(studentId: string | number, data: Student) {
     return this.httpClient.put<Student[]>(`${environment.apiURL}/students/${studentId}`, data).pipe(mergeMap(() => this.getStudents()));
   }
 
-  deleteStudent(studentId: number) {
+  deleteStudent(studentId: string | number) {
     return this.httpClient.delete<Student>(`${environment.apiURL}/students/${studentId}`).pipe(mergeMap(() => this.getStudents()));
   }
 
-  getStudentById(studentId: number | string): Observable<Student | undefined> {
+  getStudentById(studentId: string | number): Observable<Student | undefined> {
     return this.httpClient.get<Student>(`${environment.apiURL}/students/${studentId}`);
   }
+
+getStudentRegistrations(studentId: string) {
+    return this.httpClient.get<Registration[]>(`${environment.apiURL}/registrations?studentId=${studentId}&_expand=course`)
+}
 
   getAllStudents(){
     return this.httpClient.get<Student[]>(`${environment.apiURL}/students?role=STUDENT`);

@@ -1,36 +1,7 @@
-<!-- <div *ngIf="student">
-  <h2>Detalles del estudiante | !!!pasar a tabla de angular material</h2>
-  <table>
-    <tr>
-      <th>ID</th>
-      <td>{{ student.id }}</td>
-    </tr>
-    <tr>
-      <th>Nombre</th>
-      <td>{{ student.firstName }} {{ student.lastName }}</td>
-    </tr>
-    <tr>
-      <th>Email</th>
-      <td>{{ student.email }}</td>
-    </tr>
-    <tr>
-      <th>Dirección</th>
-      <td>{{ student.address }}</td>
-    </tr>
-    <tr>
-      <th>Teléfono</th>
-      <td>{{ student.phone }}</td>
-    </tr>
-    <tr>
-      <th>Rol</th>
-      <td>{{ student.role }}</td>
-    </tr>
-  </table>
-</div> -->
 <div *ngIf="student" class="table__container form mat-elevation-z8">
   <h2 appTittleFontSize>Detalles del estudiante</h2>
 
-  <table class="studenst__table" mat-table [dataSource]="dataSource">
+  <table class="studenst__table" mat-table [dataSource]="[student]">
 
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -60,5 +31,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <p *ngIf="dataSource.length === 0"> No hay estudiantes para mostrar</p>
+  <p *ngIf="[student].length === 0"> No hay estudiantes para mostrar</p>
 </div>
+<pre>{{student?.id| json}}</pre>
