@@ -10,7 +10,6 @@ import { RegistrationsService } from '../../../../../../core/services/registrati
 import { LoadingService } from '../../../../../../core/services/loading.service';
 import { MatButtonModule } from '@angular/material/button';
 import { RegistrationsModalComponent } from '../registrations-modal/registrations-modal.component';
-
 @Component({
   selector: 'app-registrations',
   templateUrl: './registrations.component.html',
@@ -45,6 +44,24 @@ export class RegistrationsComponent implements OnInit {
   onCreateRegistration(): void {
     this.dialog.open(RegistrationsModalComponent).afterClosed().subscribe({
       
+    })
+  }
+
+  onEditRegistration(registration: Registration): void {
+    this.dialog.open(RegistrationsModalComponent,{
+      data: registration,
+    }).afterClosed().subscribe({
+      next: (result) => {
+        if (result) {
+          this.loadingService.setLoading(true);
+          this.registrationService.updateRegistrations(registration.id, result).subscribe({
+            next: (registrations) => (this.dataSource = registrations),
+            complete: () => {
+              this.loadingService.setLoading(false);
+            }
+          })
+        }
+      }
     })
   }
 

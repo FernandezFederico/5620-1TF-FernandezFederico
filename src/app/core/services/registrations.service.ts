@@ -24,6 +24,10 @@ export class RegistrationsService {
   createRegistrations(data: CreateRegistrationsData) {
     return this.httpClient.post<Registration>(`${environment.apiURL}/registrations`, data);
   }
+
+  updateRegistrations(registrationId: string, data: CreateRegistrationsData) {
+    return this.httpClient.put<Registration>(`${environment.apiURL}/registrations/${registrationId}`, data).pipe(mergeMap(() => this.getRegistrations()));
+  }
   
   getRegistrationsByStudentId(studentId: string) {
     return this.httpClient.get<Registration[]>(`${environment.apiURL}/registrations?studentId=${studentId}&_embed=course`);
