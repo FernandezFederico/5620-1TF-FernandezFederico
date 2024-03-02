@@ -5,6 +5,7 @@
     <mat-form-field class="form__field">
       <mat-label>Nombre de Curso</mat-label>
       <input formControlName="courseName" type="text" matInput />
+      <mat-error>{{ courseForm.get('password')?.errors | validationErrors }}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form__field">
@@ -26,11 +27,13 @@
     <mat-form-field class="form__field">
       <mat-label>Profesor</mat-label>
       <input formControlName="profesor" type="text" matInput />
+      <mat-error>{{ courseForm.get('password')?.errors | validationErrors }}</mat-error>
     </mat-form-field>
 
     <mat-form-field class="form__field">
       <mat-label>Comisión</mat-label>
       <input formControlName="group" type="text" matInput />
+      <mat-error>{{ courseForm.get('password')?.errors | validationErrors }}</mat-error>
     </mat-form-field>
   </form>
 </mat-dialog-content>
