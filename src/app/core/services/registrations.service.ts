@@ -24,7 +24,14 @@ export class RegistrationsService {
   createRegistrations(data: CreateRegistrationsData) {
     return this.httpClient.post<Registration>(`${environment.apiURL}/registrations`, data);
   }
+  
+  getRegistrationsByStudentId(studentId: string) {
+    return this.httpClient.get<Registration[]>(`${environment.apiURL}/registrations?studentId=${studentId}&_embed=course`);
+  }
 
+  getRegistrationsByCourseId(courseId: string) {
+    return this.httpClient.get<Registration[]>(`${environment.apiURL}/registrations?courseId=${courseId}&_embed=student`);
+  }
   deleteRegistration(registrationId: string) {
     return this.httpClient.delete<Registration>(`${environment.apiURL}/registrations/${registrationId}`).pipe(mergeMap(() => this.getRegistrations()));
   }

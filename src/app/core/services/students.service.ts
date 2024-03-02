@@ -13,7 +13,7 @@ export class StudentsService {
 
   constructor(private httpClient: HttpClient, private alertsService: AlertsService) { }
 
-    generateRandomString(length:number){
+  generateRandomString(length: number) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
     const charactersLength = characters.length;
@@ -35,7 +35,7 @@ export class StudentsService {
   }
 
   studentSubmit(payload: Student) {
-    return this.httpClient.post<Student>(`${environment.apiURL}/students`, {...payload, token: this.generateRandomString(15)}).pipe(mergeMap(() => this.getStudents()));
+    return this.httpClient.post<Student>(`${environment.apiURL}/students`, { ...payload, token: this.generateRandomString(15) }).pipe(mergeMap(() => this.getStudents()));
   }
 
   updateStudentById(studentId: string | number, data: Student) {
@@ -50,11 +50,11 @@ export class StudentsService {
     return this.httpClient.get<Student>(`${environment.apiURL}/students/${studentId}`);
   }
 
-getStudentRegistrations(studentId: string) {
+  getStudentRegistrations(studentId: string) {
     return this.httpClient.get<Registration[]>(`${environment.apiURL}/registrations?studentId=${studentId}&_expand=course`)
-}
+  }
 
-  getAllStudents(){
+  getAllStudents() {
     return this.httpClient.get<Student[]>(`${environment.apiURL}/students?role=STUDENT`);
   }
 }

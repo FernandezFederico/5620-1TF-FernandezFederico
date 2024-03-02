@@ -24,7 +24,6 @@ export class StudentsComponent implements OnInit {
     this.loadingService.setLoading(true)
     this.studentsService.getStudents().subscribe({
       next: (students) => {
-
         this.dataSource = students;
       },
       complete: () => {

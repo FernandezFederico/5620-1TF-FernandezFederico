@@ -1,1 +1,68 @@
-<p>course-detail works!</p>
+<div class="table__container form mat-elevation-z8">
+  <h2 appTittleFontSize> Detalles del curso </h2>
+
+  <table *ngIf="courseById" class="studenst__table" mat-table [dataSource]="[courseById]">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let courseById"> {{courseById.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="courseName">
+      <th mat-header-cell *matHeaderCellDef> Curso </th>
+      <td mat-cell *matCellDef="let courseById"> {{courseById.courseName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef> Fecha de Inicio </th>
+      <td mat-cell *matCellDef="let courseById"> {{courseById.startDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef> Fecha de Cierre </th>
+      <td mat-cell *matCellDef="let courseById"> {{courseById.endDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="profesor">
+      <th mat-header-cell *matHeaderCellDef> Profesor </th>
+      <td mat-cell *matCellDef="let courseById"> {{courseById.profesor}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedCoursesColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedCoursesColumns;"></tr>
+  </table>
+  <p *ngIf="[courseById].length === 0">No se encontraron inscripciones para este estudiante.</p>
+</div>
+
+<div class="table__container form mat-elevation-z8">
+  <h2 appTittleFontSize>Detalles de Inscripciones</h2>
+
+  <table *ngIf="registrationsById.length > 0" class="studenst__table" mat-table [dataSource]="registrationsById">
+    
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let registration"> {{registration.student.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="fullName">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let registration"> {{ registration.student | fullName }} </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let registration"> {{ registration.student.email }} </td>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Dirección </th>
+      <td mat-cell *matCellDef="let registration"> {{ registration.student.address }} </td>
+    </ng-container>
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+      <td mat-cell *matCellDef="let registration"> {{ registration.student.phone }} </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedStudentsColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedStudentsColumns;"></tr>
+  </table>
+  <p *ngIf="registrationsById.length === 0">No se encontraron inscripciones para este estudiante.</p>
+</div>
