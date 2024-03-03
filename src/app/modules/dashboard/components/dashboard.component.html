@@ -1,7 +1,7 @@
 <app-header (toggleSidenav)="toggleSidenav()" ></app-header>
 
 <div class="dashboard__container">
-  <app-sidenav [isSidenavOpen]="!isSidenavOpen"></app-sidenav>
+  <app-sidenav *ngIf="authService.authUser?.role === 'ADMIN' || authService.authUser?.role === 'USER'" [isSidenavOpen]="!isSidenavOpen"></app-sidenav>
   
   <div class="pages__container">
     <router-outlet></router-outlet>

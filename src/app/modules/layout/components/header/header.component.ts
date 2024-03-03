@@ -15,8 +15,10 @@ export class HeaderComponent {
   authUser$: Observable< Student | null >
 
   constructor(
-    private router: Router, private authService: AuthService,
+    private router: Router, 
+    public authService: AuthService,
     private store: Store,
+
   ) {
     this.authUser$ = this.store.select(selectAuthStudent)
   }

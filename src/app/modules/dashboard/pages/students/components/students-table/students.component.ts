@@ -6,6 +6,7 @@ import { AlertsService } from '../../../../../../core/services/alerts.service';
 import { Student } from '../../interface/index';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentsModalComponent } from '../students-modal/students-modal.component';
+import { AuthService } from '../../../../../../core/services/auth.service';
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
@@ -18,21 +19,39 @@ export class StudentsComponent implements OnInit {
     private loadingService: LoadingService,
     private alertsService: AlertsService,
     private studentsService: StudentsService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
     this.loadingService.setLoading(true)
-    this.studentsService.getStudents().subscribe({
-      next: (students) => {
-        this.dataSource = students;
-      },
-      complete: () => {
-        this.loadingService.setLoading(false)
-      }
-    })
+    this.loadStudents();
+    
   }
   displayedColumns: string[] = ['id', 'fullName', 'email', 'address', 'phone', 'password', 'role', 'actions'];
   dataSource: Student[] = [];
+
+  loadStudents(): void {
+    if (this.authService.authUser?.role === 'ADMIN') {
+      this.studentsService.getStudents().subscribe({
+        next: (students) => {
+          this.dataSource = students;
+        },
+        complete: () => {
+          this.loadingService.setLoading(false)
+        }
+      })
+      
+    }else {
+      this.studentsService.getAllStudents().subscribe({
+        next: (students) => {
+          this.dataSource = students;
+        },
+        complete: () => {
+          this.loadingService.setLoading(false)
+        }
+      })
+    }
+  }
 
   onStudentSubmit(): void {
     this.dialog.open(StudentsModalComponent).afterClosed().subscribe({
@@ -98,6 +117,8 @@ export class StudentsComponent implements OnInit {
 
       }
     });
-  }
+  };
+
+
 
 }

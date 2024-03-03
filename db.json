@@ -31,6 +31,17 @@
       "password": "123456",
       "role": "STUDENT",
       "token": "TcB47Ontm4g26AY"
+    },
+    {
+      "id": "fe3b",
+      "firstName": "ADMIN2",
+      "lastName": "ADMIN2",
+      "email": "ADMIN2@ADMIN2",
+      "address": "123456",
+      "phone": "1234569870",
+      "password": "123456",
+      "role": "ADMIN",
+      "token": "MypS59VVXt51PMP"
     }
   ],
   "courses": [
@@ -51,12 +62,12 @@
       "group": "TEST2"
     },
     {
-      "id": "afa5",
       "courseName": "courseTEST",
       "startDate": "2024-03-20T03:00:00.000Z",
       "endDate": "2024-03-21T03:00:00.000Z",
       "profesor": "courseTEST",
-      "group": "courseTEST"
+      "group": "courseTEST",
+      "id": "afa5"
     }
   ],
   "registrations": [
@@ -76,9 +87,9 @@
       "courseId": "ff03"
     },
     {
-      "id": "a5ac",
       "studentId": "1d49",
-      "courseId": "bbaf"
+      "courseId": "bbaf",
+      "id": "a5ac"
     }
   ]
 }

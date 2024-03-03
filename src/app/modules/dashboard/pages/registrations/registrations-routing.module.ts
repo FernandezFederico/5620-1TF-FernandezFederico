@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegistrationsComponent } from './components/registrations-table/registrations.component';
+import { studentGuard } from '../../../../core/guards/student.guard';
 
 const routes: Routes = [
   {

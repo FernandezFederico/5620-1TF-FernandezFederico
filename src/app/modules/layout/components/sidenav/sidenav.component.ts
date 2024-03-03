@@ -7,6 +7,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './sidenav.component.scss'
 })
 export class SidenavComponent {
+
+
   @Input() isSidenavOpen: boolean = false;
 
 }

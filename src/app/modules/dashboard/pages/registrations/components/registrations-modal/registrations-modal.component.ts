@@ -42,11 +42,10 @@ export class RegistrationsModalComponent {
   }
 
   onSubmit(): void {
-    if (this.registrationsForm.invalid) {
-      this.registrationsForm.markAllAsTouched();
+    if (this.registrationsForm.valid) {
+      this.matDialogRef.close(this.registrationsForm.value);
     } else {
-      this.store.dispatch(RegistrationsActions.createRegistration({ data: this.registrationsForm.value }));
+      this.registrationsForm.markAllAsTouched();
     };
-    this.matDialogRef.close();
   }
 }

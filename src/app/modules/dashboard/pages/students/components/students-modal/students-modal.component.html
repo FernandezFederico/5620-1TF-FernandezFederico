@@ -1,4 +1,4 @@
-<h2 class="form__title" appTittleFontSize>Estudiante</h2>
+<h2 class="form__title" appTittleFontSize>Nuevo Usuario</h2>
 <mat-dialog-content class="form__container">
   <form [formGroup]="studentForm" class="form__container">
 
@@ -41,8 +41,8 @@
     <mat-form-field class="form__field">
       <mat-label>Rol</mat-label>
       <mat-select formControlName="role">
-        <mat-option value="ADMIN">ADMIN</mat-option>  
-        <mat-option value="USER">USER</mat-option>
+        <mat-option *ngIf="authService.authUser?.role === 'ADMIN'" value="ADMIN">ADMIN</mat-option>  
+        <mat-option *ngIf="authService.authUser?.role === 'ADMIN'" value="USER">USER</mat-option>
         <mat-option value="STUDENT">STUDENT</mat-option>
       </mat-select>
     </mat-form-field>

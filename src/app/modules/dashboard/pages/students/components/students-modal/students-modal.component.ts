@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Student } from '../../interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../../../../core/services/auth.service';
 
 @Component({
   selector: 'app-students-modal',
@@ -15,6 +16,7 @@ export class StudentsModalComponent {
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<StudentsModalComponent>,
+    public authService: AuthService,
     @Inject(MAT_DIALOG_DATA) private editingStudent?: Student,
   ) {
     this.studentForm = this.fb.group({
@@ -34,7 +36,9 @@ export class StudentsModalComponent {
 
   onSave(): void {
     if (this.studentForm.valid) {
-      this.dialogRef.close(this.studentForm.value);
+      this.dialogRef.close(
+        this.studentForm.value
+      );
     } else {
       this.studentForm.markAllAsTouched();
     }

@@ -39,7 +39,7 @@ export class StudentsService {
   }
 
   updateStudentById(studentId: string | number, data: Student) {
-    return this.httpClient.put<Student[]>(`${environment.apiURL}/students/${studentId}`, data).pipe(mergeMap(() => this.getStudents()));
+    return this.httpClient.put<Student[]>(`${environment.apiURL}/students/${studentId}`, {...data } ).pipe(mergeMap(() => this.getStudents()));
   }
 
   deleteStudent(studentId: string | number) {

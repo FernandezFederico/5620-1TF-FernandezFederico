@@ -7,7 +7,6 @@ import { LayoutModule } from '../layout/layout.module';
 import { StudentsModule } from '../dashboard/pages/students/students.module';
 import { CoursesModule } from './pages/courses/courses.module';
 
-
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
 
