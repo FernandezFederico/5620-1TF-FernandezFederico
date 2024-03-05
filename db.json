@@ -1,47 +1,37 @@
 {
   "students": [
     {
-      "id": "52c0",
-      "firstName": "test2",
-      "lastName": "test2",
-      "email": "test@test.com",
-      "address": "test",
-      "phone": "0987654321",
-      "password": "123456",
-      "role": "USER",
-      "token": "uPlUuaRD6JSdeyx"
-    },
-    {
-      "firstName": "Student",
-      "lastName": "Student",
-      "email": "Student@Student.com",
-      "address": "Student",
-      "phone": "1234567891",
-      "password": "123456",
-      "role": "STUDENT",
-      "id": "347b"
-    },
-    {
-      "id": "1d49",
-      "firstName": "Estudiante2",
-      "lastName": "Estudiante2",
-      "email": "Estudiante2@Estudiante2",
-      "address": "Estudiante2",
-      "phone": "1234563692",
-      "password": "123456",
-      "role": "STUDENT",
-      "token": "TcB47Ontm4g26AY"
-    },
-    {
-      "id": "fe3b",
-      "firstName": "ADMIN2",
-      "lastName": "ADMIN2",
-      "email": "ADMIN2@ADMIN2",
-      "address": "123456",
-      "phone": "1234569870",
+      "firstName": "ADMIN1",
+      "lastName": "ADMIN1",
+      "email": "ADMIN@ADMIN",
+      "address": "ADMIN",
+      "phone": "1234567890",
       "password": "123456",
       "role": "ADMIN",
-      "token": "MypS59VVXt51PMP"
+      "token": "PoXizxi3VqkzW2f",
+      "id": "0f26"
+    },
+    {
+      "id": "3530",
+      "firstName": "ESTUDENT",
+      "lastName": "ESTUDENT",
+      "email": "ESTUDENT@ESTUDENT",
+      "address": "123456",
+      "phone": "1234567890",
+      "password": "123456",
+      "role": "STUDENT",
+      "token": "Q1SmepiE8dipJLZ"
+    },
+    {
+      "id": "58df",
+      "firstName": "USER",
+      "lastName": "USER",
+      "email": "USER@USER",
+      "address": "USER",
+      "phone": "1234567890",
+      "password": "123456",
+      "role": "USER",
+      "token": "0j6wXAtbR6TzR8N"
     }
   ],
   "courses": [
@@ -72,24 +62,14 @@
   ],
   "registrations": [
     {
-      "id": "946a",
-      "studentId": "347b",
+      "id": "379d",
+      "studentId": "3530",
+      "courseId": "afa5"
+    },
+    {
+      "id": "b386",
+      "studentId": "3530",
       "courseId": "ff03"
-    },
-    {
-      "id": "001e",
-      "studentId": "347b",
-      "courseId": "bbaf"
-    },
-    {
-      "id": "7d81",
-      "studentId": "1d49",
-      "courseId": "ff03"
-    },
-    {
-      "studentId": "1d49",
-      "courseId": "bbaf",
-      "id": "a5ac"
     }
   ]
 }

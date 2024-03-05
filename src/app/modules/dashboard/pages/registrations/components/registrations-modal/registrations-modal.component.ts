@@ -42,10 +42,13 @@ export class RegistrationsModalComponent {
   }
 
   onSubmit(): void {
-    if (this.registrationsForm.valid) {
-      this.matDialogRef.close(this.registrationsForm.value);
-    } else {
+    if (this.registrationsForm.invalid) {
       this.registrationsForm.markAllAsTouched();
-    };
+    } else {
+      this.store.dispatch(
+        RegistrationsActions.createRegistration({ data: this.registrationsForm.value })
+      );
+      this.matDialogRef.close();
+    }
   }
 }
