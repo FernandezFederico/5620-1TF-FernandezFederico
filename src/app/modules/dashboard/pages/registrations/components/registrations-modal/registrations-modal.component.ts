@@ -35,10 +35,8 @@ export class RegistrationsModalComponent {
       studentId: this.formBuilder.control('', Validators.required),
       courseId: this.formBuilder.control('', Validators.required),
     });
-    if (editingRegistration) {
-      this.registrationsForm.patchValue(editingRegistration);
 
-    }
+    
   }
 
   onSubmit(): void {
@@ -49,6 +47,7 @@ export class RegistrationsModalComponent {
         RegistrationsActions.createRegistration({ data: this.registrationsForm.value })
       );
       this.matDialogRef.close();
-    }
+    }    
   }
+  
 }

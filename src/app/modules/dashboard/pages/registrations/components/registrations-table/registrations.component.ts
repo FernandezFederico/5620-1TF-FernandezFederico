@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { RegistrationsActions } from '../../store/registrations.actions';
 import { selectLoading, selectRegistrations } from '../../store/registrations.selectors';
@@ -42,9 +42,7 @@ export class RegistrationsComponent implements OnInit {
   }
 
   onCreateRegistration(): void {
-    this.dialog.open(RegistrationsModalComponent).afterClosed().subscribe({
-      
-    })
+    this.dialog.open(RegistrationsModalComponent)
   }
 
   onEditRegistration(registration: Registration): void {

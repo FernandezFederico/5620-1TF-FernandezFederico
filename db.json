@@ -23,7 +23,6 @@
       "token": "Q1SmepiE8dipJLZ"
     },
     {
-      "id": "58df",
       "firstName": "USER",
       "lastName": "USER",
       "email": "USER@USER",
@@ -31,7 +30,7 @@
       "phone": "1234567890",
       "password": "123456",
       "role": "USER",
-      "token": "0j6wXAtbR6TzR8N"
+      "id": "58df"
     }
   ],
   "courses": [
@@ -52,7 +51,7 @@
       "group": "TEST2"
     },
     {
-      "courseName": "courseTEST",
+      "courseName": "courseTEST.",
       "startDate": "2024-03-20T03:00:00.000Z",
       "endDate": "2024-03-21T03:00:00.000Z",
       "profesor": "courseTEST",
@@ -70,6 +69,11 @@
       "id": "b386",
       "studentId": "3530",
       "courseId": "ff03"
+    },
+    {
+      "id": "e7d3",
+      "studentId": "3530",
+      "courseId": "bbaf"
     }
   ]
 }
