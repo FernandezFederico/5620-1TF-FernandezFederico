@@ -51,7 +51,7 @@
       "group": "TEST2"
     },
     {
-      "courseName": "courseTEST.",
+      "courseName": "courseTEST",
       "startDate": "2024-03-20T03:00:00.000Z",
       "endDate": "2024-03-21T03:00:00.000Z",
       "profesor": "courseTEST",
@@ -71,9 +71,9 @@
       "courseId": "ff03"
     },
     {
-      "id": "e7d3",
+      "id": "2b07",
       "studentId": "3530",
-      "courseId": "bbaf"
+      "courseId": "ff03"
     }
   ]
 }

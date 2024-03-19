@@ -61,7 +61,7 @@ export class StudentsComponent implements OnInit {
           this.studentsService.studentSubmit(result).subscribe({
             next: (courses) => (this.dataSource = courses),
             complete: () => {
-              this.alertsService.showSuccessAlert("Curso creado", "Curso creado exitosamente");
+              this.alertsService.showSuccessAlert("Usuario Creado", "Usuario creado exitosamente");
               this.loadingService.setLoading(false);
             }
           })
